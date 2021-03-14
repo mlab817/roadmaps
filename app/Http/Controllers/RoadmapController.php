@@ -10,11 +10,18 @@ class RoadmapController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $search = $request->query('search');
+
+        $roadmaps = trim($search)
+            ? Roadmap::search($search)->paginate(10)
+            : Roadmap::paginate(10);
+
+        return view('roadmaps.index', compact('roadmaps'));
     }
 
     /**
@@ -24,7 +31,7 @@ class RoadmapController extends Controller
      */
     public function create()
     {
-        //
+        return view('roadmaps.form');
     }
 
     /**

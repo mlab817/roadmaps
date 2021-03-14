@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommodityController;
+use App\Http\Controllers\RoadmapController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +32,5 @@ Route::group(['prefix' => 'commodities'], function() {
     Route::post('/', [CommodityController::class,'store'])->name('commodities.store');
     Route::get('/', [CommodityController::class,'index'])->name('commodities.index');
 });
+
+Route::resource('roadmaps', RoadmapController::class);

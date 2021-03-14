@@ -38,7 +38,7 @@ class CommodityController extends Controller
      */
     public function create()
     {
-        $commodity = new Commodity;
+        $commodity = new Commodity();
 
         return view('commodities.form', compact('commodity'))
             ->with('offices', Office::select('id AS value','name AS label')->get());
@@ -83,7 +83,7 @@ class CommodityController extends Controller
     {
         return view('commodities.form')
             ->with('commodity', $commodity)
-            ->with('offices', Office::all());
+            ->with('offices', Office::select('id AS value','name AS label')->get());
     }
 
     /**
