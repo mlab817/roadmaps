@@ -16,7 +16,7 @@ class UploadService
     {
         $title = $this->generateFileName($file);
 
-        $uploadedFile = Storage::putFileAs($folder, $file, $title);
+        $uploadedFile = $file->storePubliclyAs($folder, $title);
 
         return [
             'path'  => $uploadedFile,

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="261ac3e3-52a5-4e20-a354-80f1627e0350" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/UploadService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/UploadService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,6 +194,8 @@
       <workItem from="1615708044118" duration="9833000" />
       <workItem from="1615724936410" duration="6068000" />
       <workItem from="1615771246855" duration="26379000" />
+      <workItem from="1615806056462" duration="2984000" />
+      <workItem from="1615816488581" duration="266000" />
     </task>
     <servers />
   </component>
@@ -209,5 +212,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
