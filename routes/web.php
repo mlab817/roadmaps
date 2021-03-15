@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CommodityController;
+use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\ProgressReportController;
 use App\Http\Controllers\RoadmapController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,4 +35,8 @@ Route::group(['prefix' => 'commodities'], function() {
     Route::get('/', [CommodityController::class,'index'])->name('commodities.index');
 });
 
-Route::resource('roadmaps', RoadmapController::class);
+Route::resources([
+    'roadmaps'          => RoadmapController::class,
+    'offices'           => OfficeController::class,
+    'progress-reports'  => ProgressReportController::class,
+]);

@@ -2,12 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="261ac3e3-52a5-4e20-a354-80f1627e0350" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/roadmaps/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Traits/WithFileUpload.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/forms/label.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/offices/form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/offices/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/progress-reports/form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/progress-reports/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/roadmaps.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/roadmaps.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommodityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommodityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OfficeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OfficeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProgressReportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProgressReportController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoadmapController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoadmapController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/commodities/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/commodities/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/commodities/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/commodities/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/roadmaps/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/roadmaps/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/roadmaps/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/roadmaps/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +27,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -134,6 +146,17 @@
       <path value="$PROJECT_DIR$/vendor/laravel/scout" />
       <path value="$PROJECT_DIR$/vendor/teamtnt/tntsearch" />
       <path value="$PROJECT_DIR$/vendor/teamtnt/laravel-scout-tntsearch-driver" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/google/apiclient-services" />
+      <path value="$PROJECT_DIR$/vendor/google/apiclient" />
+      <path value="$PROJECT_DIR$/vendor/google/auth" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem-cached-adapter" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/nao-pon/flysystem-google-drive" />
+      <path value="$PROJECT_DIR$/vendor/nao-pon/flysystem-cached-extra" />
+      <path value="$PROJECT_DIR$/vendor/phpseclib/phpseclib" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pjss1OhCSbeVOGS0M3aTEZKCkY" />
@@ -149,6 +172,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/database" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -171,7 +195,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615708041014</updated>
-      <workItem from="1615708044118" duration="9527000" />
+      <workItem from="1615708044118" duration="9833000" />
+      <workItem from="1615724936410" duration="6068000" />
     </task>
     <servers />
   </component>

@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Office;
 use App\Models\ProgressReport;
+use App\Models\ReportPeriod;
+use App\Traits\WithFileUpload;
 use Illuminate\Http\Request;
 
 class ProgressReportController extends Controller
 {
+    use WithFileUpload;
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,9 @@ class ProgressReportController extends Controller
      */
     public function index()
     {
-        //
+        $progress_reports = ProgressReport::paginate(10);
+
+        return view('progress-reports.index', compact('progress_reports'));
     }
 
     /**
@@ -24,7 +31,13 @@ class ProgressReportController extends Controller
      */
     public function create()
     {
-        //
+        $progress_report = new ProgressReport();
+
+        return view('progress-reports.form', compact('progress_report'))
+            ->with([
+                'offices'           => Office::select('id AS value','name AS label')->get(),
+                'report_periods'    => ReportPeriod::select('id AS value','name AS label')->get(),
+            ]);
     }
 
     /**
@@ -35,7 +48,7 @@ class ProgressReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $upload = $this->handleUpload($request->attachment);
     }
 
     /**

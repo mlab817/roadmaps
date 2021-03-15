@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RoadmapStoreRequest;
+use App\Models\Commodity;
+use App\Models\Office;
 use App\Models\Roadmap;
 use Illuminate\Http\Request;
 
@@ -31,7 +34,13 @@ class RoadmapController extends Controller
      */
     public function create()
     {
-        return view('roadmaps.form');
+        $roadmap = new Roadmap();
+
+        return view('roadmaps.form', compact('roadmap'))
+            ->with([
+                'offices'       => Office::select('id AS value','name AS label')->get(),
+                'commodities'   => Commodity::select('id AS value','name AS label')->get(),
+            ]);
     }
 
     /**
@@ -40,9 +49,18 @@ class RoadmapController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoadmapStoreRequest $request)
     {
-        //
+        $roadmap = Roadmap::updateOrCreate([
+            'id'            => $request->id,
+        ],[
+            'office_id'     => $request->office_id,
+            'commodity_id'  => $request->commodity_id,
+            'start_date'    => $request->start_date,
+            'user_id'       => $request->user()->id,
+        ]);
+
+        return redirect()->route('roadmaps.index');
     }
 
     /**
@@ -64,7 +82,11 @@ class RoadmapController extends Controller
      */
     public function edit(Roadmap $roadmap)
     {
-        //
+        return view('roadmaps.form', compact('roadmap'))
+            ->with([
+                'offices'       => Office::select('id AS value','name AS label')->get(),
+                'commodities'   => Commodity::select('id AS value','name AS label')->get(),
+            ]);
     }
 
     /**
