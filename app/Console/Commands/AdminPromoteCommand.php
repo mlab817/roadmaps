@@ -5,21 +5,21 @@ namespace App\Console\Commands;
 use App\Models\User;
 use Illuminate\Console\Command;
 
-class AdminMakeCommand extends Command
+class AdminPromoteCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'make:admin {user : ID or email of user}';
+    protected $signature = 'admin:promote {user : ID or email of user}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Make a user an admin using their ID or email';
+    protected $description = 'Promote a user as admin using ID or email';
 
     /**
      * Execute the console command.
