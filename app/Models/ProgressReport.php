@@ -16,16 +16,10 @@ class ProgressReport extends Model
 
     protected $fillable = [
         'office_id',
-        'commodity_id',
-        'start_date',
-        'participants_involved',
-        'activities_done',
-        'activities_ongoing',
-        'overall_status',
-        'report_date',
         'report_period_id',
-        'user_id',
-        'upload_id',
+        'attachment_path',
+        'attachment_url',
+        'remarks',
     ];
 
     protected $casts = [
@@ -54,11 +48,6 @@ class ProgressReport extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function upload(): BelongsTo
-    {
-        return $this->belongsTo(Upload::class);
     }
 
     public function getTitleAttribute(): string

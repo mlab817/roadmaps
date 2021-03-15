@@ -4,7 +4,7 @@
     </x-slot>
 
     <div>
-        <form action="{{ route('progress-reports.store') }}" method="POST">
+        <form action="{{ route('progress-reports.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 <input type="hidden" value="{{ old('id', $progress_report->id) }}" name="id">

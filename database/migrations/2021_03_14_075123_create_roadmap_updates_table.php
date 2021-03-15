@@ -23,7 +23,9 @@ class CreateRoadmapUpdatesTable extends Migration
             $table->text('overall_status')->nullable();
             $table->date('report_date')->nullable();
             $table->text('remarks')->nullable();
-            $table->foreignId('roadmap_version_id')->nullable()->constrained('roadmap_versions')->nullOnDelete();
+            $table->text('attachment_path')->nullable();
+            $table->text('attachment_url')->nullable();
+//            $table->foreignId('roadmap_version_id')->nullable()->constrained('roadmap_versions')->nullOnDelete();
             $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
         });

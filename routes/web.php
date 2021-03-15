@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\CommodityController;
+use App\Http\Controllers\FocalController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\ProgressReportController;
 use App\Http\Controllers\RoadmapController;
+use App\Http\Controllers\RoadmapUpdateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +38,9 @@ Route::group(['prefix' => 'commodities'], function() {
 });
 
 Route::resources([
+    'focals'            => FocalController::class,
     'roadmaps'          => RoadmapController::class,
     'offices'           => OfficeController::class,
     'progress-reports'  => ProgressReportController::class,
+    'roadmap-updates'   => RoadmapUpdateController::class,
 ]);

@@ -71,7 +71,9 @@ class RoadmapController extends Controller
      */
     public function show(Roadmap $roadmap)
     {
-        //
+        $roadmap->load(['roadmap_updates','focals']);
+
+        return view('roadmaps.show', compact('roadmap'));
     }
 
     /**
@@ -109,6 +111,8 @@ class RoadmapController extends Controller
      */
     public function destroy(Roadmap $roadmap)
     {
-        //
+        $roadmap->delete();
+
+        return redirect()->route('roadmaps.index');
     }
 }

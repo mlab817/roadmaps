@@ -15,19 +15,33 @@
                     <th class="px-4 py-2 text-sm tracking-wide">Report Period (ending)</th>
                     <th class="px-4 py-2 text-sm tracking-wide">Attachment</th>
                     <th class="px-4 py-2 text-sm tracking-wide">Remarks</th>
+                    <th class="px-4 py-2 text-sm tracking-wide">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($progress_reports as $item)
+                @forelse($progress_reports as $item)
                     <tr>
-                        <td>{{ $item->id }}</td>
-                        <td>{{ $item->office->name ?? '' }}</td>
-                        <td>{{ $item->report_period->name ?? '' }}</td>
-                        <td>{{ $item->upload->title ?? '' }}</td>
-                        <td>{{ $item->remarks }}</td>
-                        <td></td>
+                        <td class="px-4 py-2 text-sm text-center">{{ $item->id }}</td>
+                        <td class="px-4 py-2 text-sm text-center">{{ $item->office->name ?? '' }}</td>
+                        <td class="px-4 py-2 text-sm text-center">{{ $item->report_period->name ?? '' }}</td>
+                        <td class="px-4 py-2 text-sm text-center">
+                            <a class="text-blue-500 hover:text-blue-900" href="{{ $item->attachment_url }}" target="_blank">Download</a>
+                        </td>
+                        <td class="px-4 py-2 text-sm text-center">{{ $item->remarks }}</td>
+                        <td class="px-4 py-2 text-sm text-center">
+                            <a href="{{ route('progress-reports.edit', $item->id) }}" class="text-blue-500">Edit</a> |
+                            <form class="inline" action="{{ route('progress-reports.destroy', $item->id) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="text-red-500">Delete</button>
+                            </form>
+                        </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="6" class="px-6 py-3 text-sm text-center">No items found. Click on Add New to add a new entry.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>

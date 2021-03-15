@@ -29,12 +29,12 @@
             </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-                @foreach($commodities as $item)
+                @forelse($commodities as $item)
                     <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-center">{{ $item->id }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-center">{{ $item->name }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-center">{{ $item->office ? $item->office->name : '' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-center">
+                        <td class="px-6 py-3 whitespace-nowrap text-sm text-center">{{ $item->id }}</td>
+                        <td class="px-6 py-3 whitespace-nowrap text-sm text-center">{{ $item->name }}</td>
+                        <td class="px-6 py-3 whitespace-nowrap text-sm text-center">{{ $item->office ? $item->office->name : '' }}</td>
+                        <td class="px-6 py-3 whitespace-nowrap text-sm text-center">
                             <a href="{{ route('commodities.edit', $item->id) }}" class="text-blue-500">Edit</a> |
                             <form class="inline" action="{{ route('commodities.destroy', $item->id) }}" method="POST">
                                 @method('DELETE')
@@ -43,7 +43,11 @@
                             </form>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="4" class="px-6 py-3 text-sm text-center">No items found. Click on Add New to add a new entry.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
         <div class="my-3">

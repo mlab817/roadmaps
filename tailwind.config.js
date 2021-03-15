@@ -18,8 +18,12 @@ module.exports = {
     variants: {
         extend: {
             opacity: ['disabled'],
+            ringWidth: ['hover', 'active'],
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/line-clamp')
+    ],
 };

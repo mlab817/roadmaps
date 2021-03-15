@@ -9,7 +9,7 @@ class Textarea extends Component
     /**
      * Create a new component instance.
      *
-     * @return void
+     * @param string $value
      */
     public function __construct()
     {

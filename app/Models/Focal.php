@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Laravel\Scout\Searchable;
 
 class Focal extends Model
@@ -14,31 +15,30 @@ class Focal extends Model
     use Searchable;
 
     protected $fillable = [
-        'status',
-        'roadmap_id',
+        'focal_type_id',
+        'office_id',
         'name',
         'designation',
         'email',
-        'office_id',
         'telephone_number',
         'fax_number',
         'mobile_number',
         'viber_number',
     ];
 
+    public function focal_type(): BelongsTo
+    {
+        return $this->belongsTo(FocalType::class);
+    }
+
     public function office(): BelongsTo
     {
         return $this->belongsTo(Office::class);
     }
 
-    public function commodity(): BelongsTo
+    public function roadmaps(): BelongsToMany
     {
-        return $this->belongsTo(Commodity::class);
-    }
-
-    public function roadmap(): BelongsTo
-    {
-        return $this->belongsTo(Roadmap::class);
+        return $this->belongsToMany(Roadmap::class);
     }
 
     public function toSearchableArray(): array

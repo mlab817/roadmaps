@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProgressReportStoreRequest;
 use App\Models\Office;
 use App\Models\ProgressReport;
 use App\Models\ReportPeriod;
+use App\Services\UploadService;
 use App\Traits\WithFileUpload;
 use Illuminate\Http\Request;
 
@@ -19,7 +21,7 @@ class ProgressReportController extends Controller
      */
     public function index()
     {
-        $progress_reports = ProgressReport::paginate(10);
+        $progress_reports = ProgressReport::with(['office','report_period'])->paginate(10);
 
         return view('progress-reports.index', compact('progress_reports'));
     }
@@ -43,12 +45,26 @@ class ProgressReportController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     * @param UploadService $uploadService
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProgressReportStoreRequest $request, UploadService $uploadService)
     {
-        $upload = $this->handleUpload($request->attachment);
+        $upload = $uploadService->uploadFile($request->file('attachment'),'roadmaps');
+
+        $progressReport = ProgressReport::updateOrCreate([
+            'id'                => $request->id,
+        ],[
+            'office_id'         => $request->office_id,
+            'report_period_id'  => $request->report_period_id,
+            'attachment_path'   => $upload['path'],
+            'attachment_url'    => $upload['url'],
+            'remarks'           => $request->remarks,
+            'user_id'           => auth()->user()->id,
+        ]);
+
+        return redirect()->route('progress-reports.index');
     }
 
     /**
@@ -70,7 +86,12 @@ class ProgressReportController extends Controller
      */
     public function edit(ProgressReport $progressReport)
     {
-        //
+        return view('progress-reports.form')
+            ->with([
+                'progress_report'   => $progressReport,
+                'offices'           => Office::select('id AS value','name AS label')->get(),
+                'report_periods'    => ReportPeriod::select('id AS value','name AS label')->get(),
+            ]);
     }
 
     /**
@@ -93,6 +114,8 @@ class ProgressReportController extends Controller
      */
     public function destroy(ProgressReport $progressReport)
     {
-        //
+        $progressReport->delete();
+
+        return redirect()->route('progress-reports.index');
     }
 }

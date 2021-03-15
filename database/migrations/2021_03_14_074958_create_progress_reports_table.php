@@ -17,7 +17,8 @@ class CreateProgressReportsTable extends Migration
             $table->id();
             $table->foreignId('office_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('report_period_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('upload_id')->nullable()->constrained()->nullOnDelete();
+            $table->text('attachment_path')->nullable();
+            $table->text('attachment_url')->nullable();
             $table->text('remarks')->nullable();
             $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();

@@ -12,18 +12,15 @@ class RoadmapUpdate extends Model
 
     protected $fillable = [
         'roadmap_id',
-        'report_id',
+        'progress_report_id',
         'participants_involved',
         'activities_done',
         'activities_ongoing',
         'overall_status',
         'report_date',
         'remarks',
-        'roadmap_version_id',
-    ];
-
-    protected $with = [
-        'report',
+        'attachment_path',
+        'attachment_url',
     ];
 
     public function roadmap(): BelongsTo
@@ -31,9 +28,9 @@ class RoadmapUpdate extends Model
         return $this->belongsTo(Roadmap::class);
     }
 
-    public function report(): BelongsTo
+    public function progress_report(): BelongsTo
     {
-        return $this->belongsTo(Report::class);
+        return $this->belongsTo(ProgressReport::class);
     }
 
     public function roadmap_version(): BelongsTo

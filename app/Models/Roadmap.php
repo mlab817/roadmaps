@@ -38,9 +38,9 @@ class Roadmap extends Model
         return $this->belongsTo(Office::class);
     }
 
-    public function report(): BelongsTo
+    public function progress_report(): BelongsTo
     {
-        return $this->belongsTo(Report::class);
+        return $this->belongsTo(ProgressReport::class);
     }
 
     public function roadmap_updates(): HasMany

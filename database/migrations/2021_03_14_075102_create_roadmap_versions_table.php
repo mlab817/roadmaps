@@ -18,8 +18,8 @@ class CreateRoadmapVersionsTable extends Migration
             $table->foreignId('roadmap_id')->constrained()->cascadeOnDelete();
             $table->date('date')->nullable();
             $table->string('title');
-            $table->text('url')->nullable();
-            $table->foreignId('upload_id')->nullable()->constrained()->nullOnDelete();
+            $table->text('attachment_path')->nullable();
+            $table->text('attachment_url')->nullable();
             $table->unsignedBigInteger('version')->nullable();
             $table->foreignId('progress_report_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
