@@ -51,7 +51,7 @@ class AdminPromoteCommand extends Command
             $user->is_admin = true;
             $user->save();
 
-            $this->info('Successfully set user as admin');
+            $this->info('Successfully set '. $user->name .' as admin');
         } else {
             $this->error('User not found.');
         }

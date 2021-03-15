@@ -51,7 +51,7 @@ class AdminDemoteCommand extends Command
             $user->is_admin = false;
             $user->save();
 
-            $this->info('Successfully demoted user as non-admin');
+            $this->info('Successfully demoted '. $user->name .' as non-admin');
         } else {
             $this->error('User not found.');
         }
