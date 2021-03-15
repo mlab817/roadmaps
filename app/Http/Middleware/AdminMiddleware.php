@@ -21,6 +21,6 @@ class AdminMiddleware
             return $next($request);
         }
 
-        return redirect('home')->with('error','You do not have admin access. Please contact administrator.');
+        abort(403,'You do not have admin access. Please contact administrator.');
     }
 }
