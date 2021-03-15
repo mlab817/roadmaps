@@ -4,9 +4,11 @@
     </x-slot>
 
     <div>
+        @admin
         <div class="my-3">
             <a href="{{ route('progress-reports.create') }}" class="text-blue-500 hover:text-blue-900">Add New</a>
         </div>
+        @endadmin
         <table class="table-fixed min-w-full">
             <thead>
                 <tr class="bg-gray-100">
