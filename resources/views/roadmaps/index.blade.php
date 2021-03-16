@@ -36,7 +36,7 @@
                         <td class="px-6 py-3 text-sm text-center">
                             <a class="text-green-500 hover:text-green-900" href="{{ route('roadmaps.show', $item->id) }}">View</a> |
                             <a class="text-blue-500 hover:text-blue-900" href="{{ route('roadmaps.edit', $item->id) }}">Edit</a> |
-                            <form class="inline" method="POST">
+                            <form class="inline" action="{{ route('roadmaps.destroy', $item->id) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
                                 <button class="text-red-500" type="submit">Delete</button>
