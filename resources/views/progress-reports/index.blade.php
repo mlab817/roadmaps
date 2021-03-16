@@ -50,5 +50,8 @@
                 @endforelse
             </tbody>
         </table>
+        <div class="my-3">
+            {{ $progress_reports->links() }}
+        </div>
     </div>
 </x-app-layout>

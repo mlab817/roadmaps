@@ -87,37 +87,6 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-            @admin
-            <x-responsive-nav-link :href="route('commodities.index')" :active="request()->routeIs('commodities.index')">
-                {{ __('Commodities') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('offices.index')" :active="request()->routeIs('offices.index')">
-                {{ __('Offices') }}
-            </x-responsive-nav-link>
-            @endadmin
-            <x-responsive-nav-link :href="route('focals.index')" :active="request()->routeIs('focals.index')">
-                {{ __('Focals') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('progress-reports.index')" :active="request()->routeIs('progress-reports.index')">
-                {{ __('Progress Reports') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('roadmaps.index')" :active="request()->routeIs('roadmaps.index')">
-                {{ __('Roadmaps') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('roadmap-updates.index')" :active="request()->routeIs('roadmap-updates.index')">
-                {{ __('Updates') }}
-            </x-responsive-nav-link>
-            @env('local')
-                <x-responsive-nav-link :href="route('telescope')" :active="request()->routeIs('telescope')">
-                    {{ __('Telescope') }}
-                </x-responsive-nav-link>
-            @endenv
-        </div>
-
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
@@ -133,7 +102,38 @@
                 </div>
             </div>
 
-            <div class="mt-3 space-y-1">
+            <div class="pt-2 space-y-1">
+                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    {{ __('Dashboard') }}
+                </x-responsive-nav-link>
+                @admin
+                <x-responsive-nav-link :href="route('commodities.index')" :active="request()->routeIs('commodities.index')">
+                    {{ __('Commodities') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('offices.index')" :active="request()->routeIs('offices.index')">
+                    {{ __('Offices') }}
+                </x-responsive-nav-link>
+                @endadmin
+                <x-responsive-nav-link :href="route('focals.index')" :active="request()->routeIs('focals.index')">
+                    {{ __('Focals') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('progress-reports.index')" :active="request()->routeIs('progress-reports.index')">
+                    {{ __('Progress Reports') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('roadmaps.index')" :active="request()->routeIs('roadmaps.index')">
+                    {{ __('Roadmaps') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('roadmap-updates.index')" :active="request()->routeIs('roadmap-updates.index')">
+                    {{ __('Updates') }}
+                </x-responsive-nav-link>
+                @env('local')
+                    <x-responsive-nav-link :href="route('telescope')" :active="request()->routeIs('telescope')">
+                        {{ __('Telescope') }}
+                    </x-responsive-nav-link>
+                @endenv
+            </div>
+
+            <div class="space-y-1">
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
