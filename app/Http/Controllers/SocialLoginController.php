@@ -25,7 +25,7 @@ class SocialLoginController extends Controller
         return redirect($this->redirectTo);
     }
 
-    public function findOrCreateUser($user, $provider)
+    public function findOrCreate($user, $provider)
     {
         $authUser = User::where('provider', $user->id)
             ->orWhere('email', $user->email)
