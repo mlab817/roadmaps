@@ -7,7 +7,7 @@
         @if($errors->any())
             <div class="text-red-500">
                 <p class="font-weight-bold">The following errors occurred:</p>
-                <ul class="list-disc">
+                <ul class="mx-6 list-disc">
                     @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
