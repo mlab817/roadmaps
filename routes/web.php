@@ -6,6 +6,7 @@ use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\ProgressReportController;
 use App\Http\Controllers\RoadmapController;
 use App\Http\Controllers\RoadmapUpdateController;
+use App\Http\Controllers\SocialLoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/oauth/{provider}', [SocialLoginController::class, 'redirectToProvider']);
+Route::get('/oauth/{provider}/callback', [SocialLoginController::class, 'handleProviderCallback']);
 
 Route::get('/', function () {
     return view('welcome');
