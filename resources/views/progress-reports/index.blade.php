@@ -29,7 +29,7 @@
                         <td class="px-4 py-2 text-sm text-center">{{ $item->office->name ?? '' }}</td>
                         <td class="px-4 py-2 text-sm text-center">{{ $item->report_period->name ?? '' }}</td>
                         <td class="px-4 py-2 text-sm text-center">
-                            <a class="text-blue-500 hover:text-blue-900" href="{{ $item->attachment_url }}" target="_blank">Download</a>
+                            <a class="text-blue-500 hover:text-blue-900" href="{{ $item->attachment_url }}" target="_blank">View</a>
                         </td>
                         <td class="px-4 py-2 text-sm text-center">{{ $item->remarks }}</td>
                         @admin

@@ -25,11 +25,11 @@
             <tbody class="bg-white divide-y divide-gray-200">
                 @foreach ($offices as $item)
                     <tr>
-                        <td class="px-4 py-2 text-sm text-center">{{ $item->id }}</td>
-                        <td class="px-4 py-2 text-sm text-center">{{ $item->name }}</td>
-                        <td class="px-4 py-2 text-sm text-center">{{ $item->short_name }}</td>
+                        <td class="px-6 py-3 text-sm text-center">{{ $item->id }}</td>
+                        <td class="px-6 py-3 text-sm text-center">{{ $item->name }}</td>
+                        <td class="px-6 py-3 text-sm text-center">{{ $item->short_name }}</td>
                         @admin
-                        <td class="px-4 py-2 text-sm text-center">
+                        <td class="px-6 py-3 text-sm text-center">
                             <a class="text-blue-500 hover:text-blue-900" href="{{ route('offices.edit', $item->id) }}">Edit</a> |
                             <form class="inline" action="{{ route('offices.destroy', $item->id) }}" method="POST">
                                 @method('DELETE')
