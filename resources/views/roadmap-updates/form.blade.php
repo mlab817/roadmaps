@@ -16,7 +16,7 @@
         <form action="{{ route('roadmap-updates.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="hidden" value="{{ $roadmap_update->id }}" name="id">
-            <input type="hidden" value="{{ request()->query('roadmap_id') || $roadmap_update->roadmap_id }}" name="roadmap_id">
+            <input type="hidden" value="{{ request()->query('roadmap_id') ? request()->query('roadmap_id') : $roadmap_update->roadmap_id }}" name="roadmap_id">
             <div class="mb-4">
                 <x-forms.label label="Progress Report"></x-forms.label>
                 <x-forms.select
