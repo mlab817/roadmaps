@@ -22,7 +22,7 @@ class RoadmapController extends Controller
 
         $roadmaps = trim($search)
             ? Roadmap::search($search)->paginate(10)
-            : Roadmap::paginate(10);
+            : Roadmap::with(['latest_update','office','commodity'])->paginate(10);
 
         return view('roadmaps.index', compact('roadmaps'));
     }
