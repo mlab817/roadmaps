@@ -22,7 +22,7 @@
                         <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Office:</label>
                         <x-forms.select
                             id="exampleFormControlInput1"
-                            selected="{{ old('office_id', $focal->office_id || request()->query('office_id')) }}"
+                            selected="{{ old('office_id', request()->query('office_id') ? request()->query('office_id') : $focal->office_id)  }}"
                             :options="$offices"
                             name="office_id"></x-forms.select>
                         @error('office_id') <span class="text-red-500">{{ $message }}</span>@enderror
