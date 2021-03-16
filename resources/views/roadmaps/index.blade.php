@@ -6,9 +6,11 @@
     </x-slot>
 
     <div>
+        @admin
         <div class="my-3">
             <a href="{{ route('roadmaps.create') }}" class="text-blue-500 hover:text-blue-900">Add New</a>
         </div>
+        @endadmin
         <table class="table-fixed min-w-full divide-y">
             <thead class="bg-gray-100">
                 <tr>
@@ -16,7 +18,9 @@
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Office</th>
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Commodity</th>
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Date Formulation/Updating Started</th>
+                    @admin
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                    @endadmin
                 </tr>
             </thead>
             <tbody class="bg-white divide-gray-50">
@@ -26,6 +30,7 @@
                         <td class="px-6 py-3 text-sm text-center">{{ $item->office->name ?? '' }}</td>
                         <td class="px-6 py-3 text-sm text-center">{{ $item->commodity->name ?? '' }}</td>
                         <td class="px-6 py-3 text-sm text-center">{{ $item->start_date }}</td>
+                        @admin
                         <td class="px-6 py-3 text-sm text-center">
                             <a class="text-green-500 hover:text-green-900" href="{{ route('roadmaps.show', $item->id) }}">View</a> |
                             <a class="text-blue-500 hover:text-blue-900" href="{{ route('roadmaps.edit', $item->id) }}">Edit</a> |
@@ -35,6 +40,7 @@
                                 <button class="text-red-500" type="submit">Delete</button>
                             </form>
                         </td>
+                        @endadmin
                     </tr>
                 @endforeach
             </tbody>

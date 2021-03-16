@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
@@ -28,9 +29,9 @@ class Roadmap extends Model
         return $this->hasManyThrough(ComplianceReview::class, RoadmapVersion::class);
     }
 
-    public function focals(): HasMany
+    public function focals(): BelongsToMany
     {
-        return $this->hasMany(Focal::class);
+        return $this->belongsToMany(Focal::class);
     }
 
     public function office(): BelongsTo

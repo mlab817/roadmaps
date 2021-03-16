@@ -16,6 +16,7 @@ class Focal extends Model
 
     protected $fillable = [
         'focal_type_id',
+        'roadmap_id',
         'office_id',
         'name',
         'designation',

@@ -10,7 +10,7 @@
                 <input type="hidden" value="{{ old('id', $progress_report->id) }}" name="id">
                 <div class="">
                     <div class="mb-4">
-                        <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+                        <x-forms.label label="Name *"></x-forms.label>
                         <x-forms.select
                             id="exampleFormControlInput1"
                             selected="{{ old('office_id', $progress_report->office_id) }}"
@@ -19,7 +19,7 @@
                         @error('office_id') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
                     <div class="mb-4">
-                        <x-forms.label for="exampleFormControlInput2" label="Report Period"></x-forms.label>
+                        <x-forms.label for="exampleFormControlInput2" label="Report Period *"></x-forms.label>
                         <x-forms.select
                             id="exampleFormControlInput1"
                             :options="$report_periods"
@@ -28,7 +28,7 @@
                         @error('report_period_id') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
                     <div class="mb-4">
-                        <x-forms.label for="exampleFormControlInput2" label="Attachment"></x-forms.label>
+                        <x-forms.label for="exampleFormControlInput2" label="Attachment *"></x-forms.label>
                         <x-forms.input
                             id="exampleFormControlInput1"
                             type="file"
@@ -39,7 +39,7 @@
                         @error('attachment') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
                     <div class="mb-4">
-                        <x-forms.label for="exampleFormControlInput2" label="Remarks"></x-forms.label>
+                        <x-forms.label for="exampleFormControlInput2" label="Remarks (optional)"></x-forms.label>
                         <x-forms.textarea
                             id="exampleFormControlInput1"
                             value="{{ old('remarks', $progress_report->remarks) }}"

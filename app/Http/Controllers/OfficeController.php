@@ -12,6 +12,10 @@ use Illuminate\Http\Response;
 
 class OfficeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin')->only(['create','update','destroy']);
+    }
     /**
      * Display a listing of the resource.
      *
