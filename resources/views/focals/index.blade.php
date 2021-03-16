@@ -52,5 +52,8 @@
                 @endforelse
             </tbody>
         </table>
+        <div class="my-3">
+            {{ $focals->links() }}
+        </div>
     </div>
 </x-app-layout>
