@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RoadmapUpdateStoreRequest;
+use App\Jobs\DeleteOldFileJob;
 use App\Models\ProgressReport;
 use App\Models\ReportPeriod;
 use App\Models\Roadmap;
@@ -79,6 +80,10 @@ class RoadmapUpdateController extends Controller
         ]);
 
         if ($attachment) {
+            if ($roadmapUpdate->attachment_path) {
+                DeleteOldFileJob::dispatch($roadmapUpdate->attachment_path);
+            }
+
             $roadmapUpdate->attachment_path       = $attachment['path'];
             $roadmapUpdate->attachment_url        = $attachment['url'];
             $roadmapUpdate->save();
