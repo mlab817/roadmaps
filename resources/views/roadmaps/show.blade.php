@@ -86,7 +86,7 @@
                                             {{ $item->designation }}
                                         </p>
                                     </td>
-                                    <td class="px-6 py-3 text-sm text-center">
+                                    <td class="px-6 py-3 text-sm text-center flex flex-wrap>
                                         {{ $item->email }}
                                     </td>
                                     <td class="px-6 py-3 text-sm text-center">
