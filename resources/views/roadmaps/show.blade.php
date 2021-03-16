@@ -151,26 +151,26 @@
                         <tbody class="bg-white divide-gray-500">
                         @forelse($roadmap->roadmap_updates as $item)
                             <tr>
-                                <td class="px-6 py-3 text-sm text-center">
+                                <td class="px-6 py-3 text-sm text-center items-start">
                                     {{ $item->progress_report->report_period->name ?? '' }}
                                 </td>
-                                <td class="px-6 py-3 text-sm text-center">
+                                <td class="px-6 py-3 text-sm text-center items-start">
                                     {{ $item->participants_involved }}
                                 </td>
-                                <td class="px-6 py-3 text-sm text-center">
+                                <td class="px-6 py-3 text-sm text-center items-start">
                                     {{ $item->activities_done }}
                                 </td>
-                                <td class="px-6 py-3 text-sm text-center">
+                                <td class="px-6 py-3 text-sm text-center items-start">
                                     {{ $item->activities_ongoing }}
                                 </td>
-                                <td class="px-6 py-3 text-sm text-center">
+                                <td class="px-6 py-3 text-sm text-center items-start">
                                     {{ $item->overall_status }}
                                 </td>
-                                <td class="px-6 py-3 text-sm text-center">
+                                <td class="px-6 py-3 text-sm text-center items-start">
                                     <a class="text-blue-500 hover:text-blue-900" href="{{ $item->attachment_url }}" target="_blank">View</a>
                                 </td>
                                 @admin
-                                <td class="px-6 py-3 text-sm text-center">
+                                <td class="px-6 py-3 text-sm text-center items-start">
                                     <a href="{{ route('roadmap-updates.edit', ['roadmap_update' => $item->id]) }}" class="text-blue-500 text-blue-900">Edit</a> |
                                     <form class="inline inline-flex" action="{{ route('roadmap-updates.destroy', $item->id) }}" method="POST">
                                         @csrf
