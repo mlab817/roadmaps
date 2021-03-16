@@ -20,8 +20,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/oauth/{provider}', [SocialLoginController::class, 'redirectToProvider']);
-Route::get('/oauth/{provider}/callback', [SocialLoginController::class, 'handleProviderCallback']);
+Route::get('/oauth/{provider}', [SocialLoginController::class, 'redirectToProvider'])
+    ->middleware('guest')
+    ->name('oauth.login');
+Route::get('/oauth/{provider}/callback', [SocialLoginController::class, 'handleProviderCallback'])
+    ->middleware('guest');
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,8 +33,6 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
 
 Route::group(['prefix' => 'commodities'], function() {
     Route::delete('/{commodity}', [CommodityController::class,'destroy'])->name('commodities.destroy');
