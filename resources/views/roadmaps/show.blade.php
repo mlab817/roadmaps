@@ -66,7 +66,7 @@
 
             <div class="mt-5 md:mt-0 md:col-span-2">
                 <div>
-                    <table class="table-fixed min-w-full">
+                    <table class="table-fixed w-full">
                         <thead>
                             <tr class="bg-gray-50">
                                 <x-tables.th>Name</x-tables.th>
