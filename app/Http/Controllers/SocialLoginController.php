@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
@@ -11,7 +12,7 @@ class SocialLoginController extends Controller
 {
     protected $redirectTo = '/dashboard';
 
-    public function redirectToProvider($provider)
+    public function redirectToProvider($provider): \Symfony\Component\HttpFoundation\RedirectResponse
     {
         return Socialite::driver($provider)->redirect();
     }
@@ -42,5 +43,13 @@ class SocialLoginController extends Controller
             'provider'  => $provider,
             'provider_id'=> $user->id,
         ]);
+    }
+
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+        $request->session()->flush();
+        $request->session()->regenerate();
+        return redirect()->route('welcome');
     }
 }

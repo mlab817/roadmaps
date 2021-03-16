@@ -25,6 +25,9 @@ Route::get('/oauth/{provider}', [SocialLoginController::class, 'redirectToProvid
     ->name('oauth.login');
 Route::get('/oauth/{provider}/callback', [SocialLoginController::class, 'handleProviderCallback'])
     ->middleware('guest');
+Route::post('/logout', [SocialLoginController::class, 'logout'])
+    ->middleware('auth')
+    ->name('logout');
 
 Route::get('/', function () {
     return view('welcome');
