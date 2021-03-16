@@ -30,7 +30,7 @@ class CommodityController extends Controller
 
         $commodities = trim($search)
             ? Commodity::search($search)->paginate(10)->get()
-            : Commodity::paginate(10);
+            : Commodity::with('office')->paginate(10);
 
         return view('commodities.index', compact('commodities'))
             ->with('header','Commodities');
