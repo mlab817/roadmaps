@@ -31,7 +31,7 @@
                         <td class="px-6 py-3 text-sm text-center">{{ $item->office->name ?? '' }}</td>
                         <td class="px-6 py-3 text-sm text-center">{{ $item->commodity->name ?? '' }}</td>
                         <td class="px-6 py-3 text-sm text-center">{{ $item->start_date }}</td>
-                        <td class="px-6 py-3 text-sm text-center">{{ $item->latest_update }}</td>
+                        <td class="px-6 py-3 text-sm text-center">{{ $item->latest_update ? $item->latest_update->report_date : '' }}</td>
                         @admin
                         <td class="px-6 py-3 text-sm text-center">
                             <a class="text-green-500 hover:text-green-900" href="{{ route('roadmaps.show', $item->id) }}">View</a> |
