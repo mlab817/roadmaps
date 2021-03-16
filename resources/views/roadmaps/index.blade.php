@@ -18,6 +18,7 @@
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Office</th>
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Commodity</th>
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Date Formulation/Updating Started</th>
+                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Latest Update</th>
                     @admin
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                     @endadmin
@@ -30,6 +31,7 @@
                         <td class="px-6 py-3 text-sm text-center">{{ $item->office->name ?? '' }}</td>
                         <td class="px-6 py-3 text-sm text-center">{{ $item->commodity->name ?? '' }}</td>
                         <td class="px-6 py-3 text-sm text-center">{{ $item->start_date }}</td>
+                        <td class="px-6 py-3 text-sm text-center">{{ $item->latest_update }}</td>
                         @admin
                         <td class="px-6 py-3 text-sm text-center">
                             <a class="text-green-500 hover:text-green-900" href="{{ route('roadmaps.show', $item->id) }}">View</a> |

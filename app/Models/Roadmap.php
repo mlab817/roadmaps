@@ -49,6 +49,11 @@ class Roadmap extends Model
         return $this->hasMany(RoadmapUpdate::class);
     }
 
+    public function latest_update()
+    {
+        return $this->roadmap_updates()->orderBy('id','DESC')->first();
+    }
+
     public function roadmap_versions(): HasMany
     {
         return $this->hasMany(RoadmapVersion::class);
