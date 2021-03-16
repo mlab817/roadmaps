@@ -109,7 +109,7 @@
                                         name="roadmaps[]"
                                         value="{{ $item->id }}"
                                         @if(request()->query('roadmap_id') && $item->id == request()->query('roadmap_id')) {{ 'checked' }} @endif
-                                        @if(in_array($item->id, $focal->roadmaps->pluck('id')->toArray() )) {{ 'checked' }} @endif>
+                                        @if(in_array($item->id, old('roadmaps', $focal->roadmaps->pluck('id')->toArray() ))) {{ 'checked' }} @endif>
                                 </div>
                                 <div class="ml-3 text-sm">
                                     <label for="{{ $item->commodity->name }}" class="font-medium text-gray-700">{{ $item->commodity->name }}</label>
