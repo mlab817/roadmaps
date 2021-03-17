@@ -7,7 +7,6 @@
         <form action="{{ route('roadmap-updates.index') }}" method="GET">
             <div class="py-3 flex items-center justify-between text-sm">
                 <div class="w-0 flex-1 flex items-center">
-                    <!-- Heroicon name: solid/paper-clip -->
                     <select
                         id="filter_period"
                         :options="$report_periods"
@@ -24,40 +23,44 @@
                 </div>
             </div>
         </form>
-        <table class="table-fixed w-full">
+        <table class="table-auto w-full">
             <thead>
                 <tr class="bg-gray-50">
+                    <x-tables.th>Roadmap</x-tables.th>
                     <x-tables.th>Report Period</x-tables.th>
                     <x-tables.th>Participants Involved</x-tables.th>
                     <x-tables.th>Activities Done</x-tables.th>
                     <x-tables.th>Activities Ongoing</x-tables.th>
                     <x-tables.th>Overall Status</x-tables.th>
                     <x-tables.th>Attachment</x-tables.th>
-                    <x-tables.th></x-tables.th>
+                    <x-tables.th>Actions</x-tables.th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-gray-500">
             @forelse($roadmap_updates as $item)
                 <tr>
-                    <td class="px-6 py-3 text-sm text-center">
+                    <td class="px-6 py-3 text-xs text-center">
+                        {{ $item->roadmap->commodity->name ?? '' }}
+                    </td>
+                    <td class="px-6 py-3 text-xs text-center">
                         {{ $item->progress_report->report_period->name ?? '' }}
                     </td>
-                    <td class="px-6 py-3 text-sm text-center">
+                    <td class="px-6 py-3 text-xs text-center">
                         {{ $item->participants_involved }}
                     </td>
-                    <td class="px-6 py-3 text-sm text-center">
+                    <td class="px-6 py-3 text-xs text-center">
                         {{ $item->activities_done }}
                     </td>
-                    <td class="px-6 py-3 text-sm text-center">
+                    <td class="px-6 py-3 text-xs text-center">
                         {{ $item->activities_ongoing }}
                     </td>
-                    <td class="px-6 py-3 text-sm text-center">
+                    <td class="px-6 py-3 text-xs text-center">
                         {{ $item->overall_status }}
                     </td>
-                    <td class="px-6 py-3 text-sm text-center">
+                    <td class="px-6 py-3 text-xs text-center">
                         <a class="text-blue-500 hover:text-blue-900" href="{{ $item->attachment_url }}" target="_blank">View</a>
                     </td>
-                    <td class="px-6 py-3 text-sm text-center">
+                    <td class="px-6 py-3 text-xs text-center">
                         <a href="{{ route('roadmap-updates.edit', ['roadmap_update' => $item->id]) }}" class="text-blue-500 text-blue-900">Edit</a> |
                         <form class="inline inline-flex" action="{{ route('roadmap-updates.destroy', $item->id) }}" method="POST">
                             @csrf
@@ -68,7 +71,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="7" class="px-6 py-3 text-sm text-center">No items found.</td>
+                    <td colspan="7" class="px-6 py-3 text-xs text-center">No items found.</td>
                 </tr>
             @endforelse
             </tbody>

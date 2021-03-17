@@ -78,22 +78,22 @@
                         <tbody class="bg-white divide-gray-500">
                             @forelse($roadmap->focals as $item)
                                 <tr>
-                                    <td class="px-6 py-3 text-sm text-center">
+                                    <td class="px-6 py-3 text-xs text-center">
                                         <span class="font-weight-bold tracking-wide text-uppercase">
                                             {{ $item->name }}
                                         </span>
-                                        <p class="text-sm text-gray-500">
+                                        <p class="text-xs text-gray-500">
                                             {{ $item->designation }}
                                         </p>
                                     </td>
-                                    <td class="px-6 py-3 text-sm text-center flex flex-wrap break-words">
+                                    <td class="px-6 py-3 text-xs text-center flex flex-wrap break-words">
                                         {{ $item->email }}
                                     </td>
-                                    <td class="px-6 py-3 text-sm text-center">
+                                    <td class="px-6 py-3 text-xs text-center">
                                         {{ $item->viber_number }}
                                     </td>
                                     @admin
-                                    <td class="px-6 py-3 text-sm text-center">
+                                    <td class="px-6 py-3 text-xs text-center">
                                         <a class="text-blue-500 hover:text-blue-900" href="{{ route('focals.edit', $item->id) }}">Edit</a> |
                                         <form class="inline" action="{{ route('focals.destroy', $item->id) }}" method="POST">
                                             @csrf
@@ -105,7 +105,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="3" class="px-6 py-3 text-sm text-center">No items found.</td>
+                                    <td colspan="3" class="px-6 py-3 text-xs text-center">No items found.</td>
                                 </tr>
                             @endforelse
                         </tbody>
@@ -151,26 +151,26 @@
                         <tbody class="bg-white divide-gray-500">
                         @forelse($roadmap->roadmap_updates as $item)
                             <tr>
-                                <td class="px-6 py-3 text-sm text-center items-start">
+                                <td class="px-6 py-3 text-xs text-center items-start break-words">
                                     {{ $item->progress_report->report_period->name ?? '' }}
                                 </td>
-                                <td class="px-6 py-3 text-sm text-center items-start">
+                                <td class="px-6 py-3 text-xs text-center items-start break-words">
                                     {{ $item->participants_involved }}
                                 </td>
-                                <td class="px-6 py-3 text-sm text-center items-start">
+                                <td class="px-6 py-3 text-xs text-center items-start break-words">
                                     {{ $item->activities_done }}
                                 </td>
-                                <td class="px-6 py-3 text-sm text-center items-start">
+                                <td class="px-6 py-3 text-xs text-center items-start break-words">
                                     {{ $item->activities_ongoing }}
                                 </td>
-                                <td class="px-6 py-3 text-sm text-center items-start">
+                                <td class="px-6 py-3 text-xs text-center items-start break-words">
                                     {{ $item->overall_status }}
                                 </td>
-                                <td class="px-6 py-3 text-sm text-center items-start">
+                                <td class="px-6 py-3 text-xs text-center items-start break-words">
                                     <a class="text-blue-500 hover:text-blue-900" href="{{ $item->attachment_url }}" target="_blank">View</a>
                                 </td>
                                 @admin
-                                <td class="px-6 py-3 text-sm text-center items-start">
+                                <td class="px-6 py-3 text-xs text-center items-start">
                                     <a href="{{ route('roadmap-updates.edit', ['roadmap_update' => $item->id]) }}" class="text-blue-500 text-blue-900">Edit</a> |
                                     <form class="inline inline-flex" action="{{ route('roadmap-updates.destroy', $item->id) }}" method="POST">
                                         @csrf
@@ -182,7 +182,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="px-6 py-3 text-sm text-center">No items found.</td>
+                                <td colspan="7" class="px-6 py-3 text-xs text-center">No items found.</td>
                             </tr>
                         @endforelse
                         </tbody>
