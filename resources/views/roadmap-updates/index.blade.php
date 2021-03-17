@@ -36,7 +36,7 @@
                     <x-tables.th>Actions</x-tables.th>
                 </tr>
             </thead>
-            <tbody class="bg-white divide-gray-500 divide-y">
+            <tbody class="bg-white divide-gray-100 divide-y">
             @forelse($roadmap_updates as $item)
                 <tr>
                     <td class="px-6 py-3 text-xs text-center">
