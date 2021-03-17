@@ -25,15 +25,15 @@
             <tbody>
                 @forelse($progress_reports as $item)
                     <tr>
-                        <td class="px-4 py-2 text-xs text-center">{{ $item->id }}</td>
-                        <td class="px-4 py-2 text-xs text-center">{{ $item->office->name ?? '' }}</td>
-                        <td class="px-4 py-2 text-xs text-center">{{ $item->report_period->name ?? '' }}</td>
-                        <td class="px-4 py-2 text-xs text-center">
+                        <td class="px-6 py-3 text-xs text-center">{{ $item->id }}</td>
+                        <td class="px-6 py-3 text-xs text-center">{{ $item->office->name ?? '' }}</td>
+                        <td class="px-6 py-3 text-xs text-center">{{ $item->report_period->name ?? '' }}</td>
+                        <td class="px-6 py-3 text-xs text-center">
                             <a class="text-blue-500 hover:text-blue-900" href="{{ $item->attachment_url }}" target="_blank">View</a>
                         </td>
-                        <td class="px-4 py-2 text-xs text-center">{{ $item->remarks }}</td>
+                        <td class="px-6 py-3 text-xs text-center">{{ $item->remarks }}</td>
                         @admin
-                        <td class="px-4 py-2 text-xs text-center">
+                        <td class="px-6 py-3 text-xs text-center">
                             <a href="{{ route('progress-reports.edit', $item->id) }}" class="text-blue-500">Edit</a> |
                             <form class="inline" action="{{ route('progress-reports.destroy', $item->id) }}" method="POST">
                                 @method('DELETE')
