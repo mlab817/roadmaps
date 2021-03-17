@@ -24,7 +24,7 @@ class RoadmapUpdateController extends Controller
     public function index(Request $request)
     {
         $roadmap_updates = $request->query('report_period_id')
-            ? RoadmapUpdate::join('progress_reports','progress_reports.id','=','roadmap_updates.progress_report_id')->where('progress_reports.report_period_id', $request->query('report_period_id'))->paginate(10)
+            ? RoadmapUpdate::with(['roadmap.commodity','progress_report','report_period'])->join('progress_reports','progress_reports.id','=','roadmap_updates.progress_report_id')->where('progress_reports.report_period_id', $request->query('report_period_id'))->paginate(10)
             : RoadmapUpdate::paginate(10);
 
         return view('roadmap-updates.index', compact('roadmap_updates'))
