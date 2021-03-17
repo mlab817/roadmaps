@@ -11,6 +11,12 @@ use Illuminate\Http\Request;
 
 class FocalController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:edit focals')->only('create','edit','update','store');
+        $this->middleware('permission:delete focals')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *

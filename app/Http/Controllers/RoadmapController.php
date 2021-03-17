@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 
 class RoadmapController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:edit roadmaps')->only('create','edit','update','store');
+        $this->middleware('permission:delete roadmaps')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *

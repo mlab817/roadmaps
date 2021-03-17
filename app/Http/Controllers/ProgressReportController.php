@@ -11,6 +11,12 @@ use Illuminate\Http\Request;
 
 class ProgressReportController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:edit progress reports')->only('create','edit','update','store');
+        $this->middleware('permission:delete progress reports')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *

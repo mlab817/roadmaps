@@ -112,7 +112,7 @@
                                         @if(in_array($item->id, old('roadmaps', $focal->roadmaps->pluck('id')->toArray() ))) {{ 'checked' }} @endif>
                                 </div>
                                 <div class="ml-3 text-sm">
-                                    <label for="{{ $item->commodity->name }}" class="font-medium text-gray-700">{{ $item->commodity->name }}</label>
+                                    <label for="{{ $item->commodity->name ?? '' }}" class="font-medium text-gray-700">{{ $item->commodity->name ?? '' }}</label>
                                 </div>
                             </div>
                         @endforeach

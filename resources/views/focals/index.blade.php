@@ -4,11 +4,9 @@
     </x-slot>
 
     <div>
-        @admin
         <div class="my-3">
             <a href="{{ route('focals.create') }}" class="text-blue-500 hover:text-blue-900">Add New</a>
         </div>
-        @endadmin
         <table class="table-fixed min-w-full divide-y">
             <thead>
                 <tr class="bg-gray-50">
@@ -19,9 +17,7 @@
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Contact Info</th>
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Roadmaps Handled</th>
-                    @admin
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-                    @endadmin
                 </tr>
             </thead>
             <tbody class="bg-white divide-gray-500">
@@ -34,7 +30,6 @@
                         <td class="px-6 py-3 text-sm text-center">{{ $item->email }}</td>
                         <td class="px-6 py-3 text-sm text-center">{{ $item->viber_number }}</td>
                         <td class="px-6 py-3 text-sm text-center">{{ $item->roadmaps->pluck('commodity.name')->join(', ') }}</td>
-                        @admin
                         <td class="px-6 py-3 text-sm text-center">
                             <a href="{{ route('focals.edit', $item->id) }}" class="text-blue-500">Edit</a> |
                             <form class="inline" action="{{ route('focals.destroy', $item->id) }}" method="POST">
@@ -43,7 +38,6 @@
                                 <button type="submit" class="text-red-500">Delete</button>
                             </form>
                         </td>
-                        @endadmin
                     </tr>
                 @empty
                     <tr>

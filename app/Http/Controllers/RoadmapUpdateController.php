@@ -15,6 +15,12 @@ use Illuminate\Http\Response;
 
 class RoadmapUpdateController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:edit roadmap updates')->only('create','edit','update','store');
+        $this->middleware('permission:delete roadmap updates')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -15,14 +15,12 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    @admin
                     <x-nav-link :href="route('commodities.index')" :active="request()->routeIs('commodities.index')">
                         {{ __('Commodities') }}
                     </x-nav-link>
                     <x-nav-link :href="route('offices.index')" :active="request()->routeIs('offices.index')">
                         {{ __('Offices') }}
                     </x-nav-link>
-                    @endadmin
                     <x-nav-link :href="route('focals.index')" :active="request()->routeIs('focals.index')">
                         {{ __('Focals') }}
                     </x-nav-link>
@@ -59,6 +57,15 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <x-responsive-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.index')">
+                            {{ __('Roles') }}
+                        </x-responsive-nav-link>
+                        <x-responsive-nav-link :href="route('permissions.index')" :active="request()->routeIs('permissions.index')">
+                            {{ __('Permissions') }}
+                        </x-responsive-nav-link>
+                        <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                            {{ __('Users') }}
+                        </x-responsive-nav-link>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -106,14 +113,12 @@
                 <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
                 </x-responsive-nav-link>
-                @admin
                 <x-responsive-nav-link :href="route('commodities.index')" :active="request()->routeIs('commodities.index')">
                     {{ __('Commodities') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('offices.index')" :active="request()->routeIs('offices.index')">
                     {{ __('Offices') }}
                 </x-responsive-nav-link>
-                @endadmin
                 <x-responsive-nav-link :href="route('focals.index')" :active="request()->routeIs('focals.index')">
                     {{ __('Focals') }}
                 </x-responsive-nav-link>
@@ -131,6 +136,15 @@
                         {{ __('Telescope') }}
                     </x-responsive-nav-link>
                 @endenv
+                <x-responsive-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.index')">
+                    {{ __('Roles') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('permissions.index')" :active="request()->routeIs('permissions.index')">
+                    {{ __('Permissions') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                    {{ __('Users') }}
+                </x-responsive-nav-link>
             </div>
 
             <div class="space-y-1">

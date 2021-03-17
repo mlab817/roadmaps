@@ -14,7 +14,8 @@ class OfficeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin')->only(['create','update','destroy']);
+        $this->middleware('permission:edit offices')->only('create','edit','update','store');
+        $this->middleware('permission:delete offices')->only('destroy');
     }
     /**
      * Display a listing of the resource.

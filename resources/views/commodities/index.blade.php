@@ -15,11 +15,9 @@
             </div>
         @endif
 
-        @admin
         <div class="my-3">
             <a href="{{ route('commodities.create') }}" class="text-blue-500 hover:text-blue-900">Add New</a>
         </div>
-        @endadmin
 
         <table class="table-fixed min-w-full">
             <thead>
@@ -27,9 +25,7 @@
                 <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-20">No.</th>
                 <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
                 <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Office
-                @admin
                 <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
-                @endadmin
             </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
@@ -38,7 +34,6 @@
                         <td class="px-6 py-3 text-sm text-center">{{ $item->id }}</td>
                         <td class="px-6 py-3 text-sm text-center">{{ $item->name }}</td>
                         <td class="px-6 py-3 text-sm text-center">{{ $item->office ? $item->office->name : '' }}</td>
-                        @admin
                         <td class="px-6 py-3 whitespace-nowrap text-sm text-center">
                             <a href="{{ route('commodities.edit', $item->id) }}" class="text-blue-500">Edit</a> |
                             <form class="inline" action="{{ route('commodities.destroy', $item->id) }}" method="POST">
@@ -47,7 +42,6 @@
                                 <button type="submit" class="text-red-500">Delete</button>
                             </form>
                         </td>
-                        @endadmin
                     </tr>
                 @empty
                     <tr>

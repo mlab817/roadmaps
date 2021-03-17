@@ -41,13 +41,11 @@
                         </div>
                     </div>
                 </div>
-                @admin
                 <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md">
                     <a href="{{ route('roadmaps.edit', $roadmap->id) }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" wire:loading.attr="disabled" wire:target="photo">
                         Edit
                     </a>
                 </div>
-                @endadmin
             </div>
         </div>
 
@@ -92,7 +90,6 @@
                                     <td class="px-6 py-3 text-xs text-center">
                                         {{ $item->viber_number }}
                                     </td>
-                                    @admin
                                     <td class="px-6 py-3 text-xs text-center">
                                         <a class="text-blue-500 hover:text-blue-900" href="{{ route('focals.edit', $item->id) }}">Edit</a> |
                                         <form class="inline" action="{{ route('focals.destroy', $item->id) }}" method="POST">
@@ -101,7 +98,6 @@
                                             <button class="text-red-500 hover:text-red-900" type="Submit">Delete</button>
                                         </form>
                                     </td>
-                                    @endadmin
                                 </tr>
                             @empty
                                 <tr>
@@ -111,13 +107,11 @@
                         </tbody>
                     </table>
                 </div>
-                @admin
                 <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md">
                     <a href="{{ route('focals.create',['roadmap_id' => $roadmap->id, 'office_id' => $roadmap->office_id]) }}" type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" wire:loading.attr="disabled" wire:target="photo">
                         Add
                     </a>
                 </div>
-                @endadmin
             </div>
         </div>
 
@@ -169,7 +163,6 @@
                                 <td class="px-6 py-3 text-xs text-center items-start break-words">
                                     <a class="text-blue-500 hover:text-blue-900" href="{{ $item->attachment_url }}" target="_blank">View</a>
                                 </td>
-                                @admin
                                 <td class="px-6 py-3 text-xs text-center items-start">
                                     <a href="{{ route('roadmap-updates.edit', ['roadmap_update' => $item->id]) }}" class="text-blue-500 text-blue-900">Edit</a> |
                                     <form class="inline inline-flex" action="{{ route('roadmap-updates.destroy', $item->id) }}" method="POST">
@@ -178,7 +171,6 @@
                                         <button type="submit" class="text-red-500 hover:text-red-900">Delete</button>
                                     </form>
                                 </td>
-                                @endadmin
                             </tr>
                         @empty
                             <tr>
@@ -188,13 +180,11 @@
                         </tbody>
                     </table>
                 </div>
-                @admin
                 <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md">
                     <a href="{{ route('roadmap-updates.create', ['roadmap_id' => $roadmap->id] ) }}" type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" wire:loading.attr="disabled" wire:target="photo">
                         Add
                     </a>
                 </div>
-                @endadmin
             </div>
         </div>
     </div>

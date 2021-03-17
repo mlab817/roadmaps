@@ -15,7 +15,8 @@ class CommodityController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin')->only(['create','update','destroy']);
+        $this->middleware('permission:edit commodities')->only('create','edit','update','store');
+        $this->middleware('permission:delete commodities')->only('destroy');
     }
 
     /**

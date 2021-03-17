@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ReportPeriodController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:edit report periods')->only('create','edit','update','store');
+        $this->middleware('permission:delete report periods')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *

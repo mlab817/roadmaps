@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Upload;
+use App\Http\Requests\UserUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
-class UploadController extends Controller
+class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:manage users');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,9 @@ class UploadController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::with(['roles','permissions'])->paginate(10);
+
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -41,10 +50,10 @@ class UploadController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Upload  $upload
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Upload $upload)
+    public function show($id)
     {
         //
     }
@@ -52,33 +61,38 @@ class UploadController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Upload  $upload
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Upload $upload)
+    public function edit(User $user)
     {
-        //
+        $user->load('roles');
+
+        return view('users.edit', compact('user'))
+            ->with('roles', Role::all());
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Upload  $upload
+     * @param \Illuminate\Http\Request $request
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Upload $upload)
+    public function update(UserUpdateRequest $request, User $user)
     {
-        //
+        $user->assignRole($request->roles);
+
+        return redirect()->route('users.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Upload  $upload
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Upload $upload)
+    public function destroy($id)
     {
         //
     }

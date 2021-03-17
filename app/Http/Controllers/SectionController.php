@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class SectionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:edit sections')->only('create','edit','update','store');
+        $this->middleware('permission:delete sections')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
