@@ -7,13 +7,10 @@ use App\Models\Office;
 use App\Models\ProgressReport;
 use App\Models\ReportPeriod;
 use App\Services\UploadService;
-use App\Traits\WithFileUpload;
 use Illuminate\Http\Request;
 
 class ProgressReportController extends Controller
 {
-    use WithFileUpload;
-
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +18,7 @@ class ProgressReportController extends Controller
      */
     public function index()
     {
-        $progress_reports = ProgressReport::with(['office','report_period'])->paginate(10);
+        $progress_reports = ProgressReport::with(['office','report_period'])->orderByDesc('id')->paginate(10);
 
         return view('progress-reports.index', compact('progress_reports'));
     }
