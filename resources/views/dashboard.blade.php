@@ -128,7 +128,7 @@
                         @endif
                     </td>
                 </tr>
-                @foreach($office->roadmaps as $rm)
+                @forelse($office->roadmaps as $rm)
                     <tr>
                         <td class="px-6 py-3 text-xs text-left">{{ $rm->commodity->name ?? '' }}</td>
                         <td class="px-6 py-3 text-xs text-center">{{ $rm->start_date }}</td>
@@ -147,10 +147,14 @@
                             @endif
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td class="px-6 py-3 text-center text-red-500" colspan="8">No roadmaps found</td>
+                    </tr>
+                @endforelse
             @empty
                 <tr>
-                    <td class="px-6 py-3 text-center text-red-500" colspan="8">No entries found</td>
+                    <td class="px-6 py-3 text-center text-red-500" colspan="8">No offices found</td>
                 </tr>
             @endforelse
             </tbody>
