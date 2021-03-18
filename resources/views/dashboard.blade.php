@@ -129,7 +129,7 @@
                     </td>
                 </tr>
                 @forelse($office->roadmaps as $rm)
-                    <tr>
+                    <tr class="items-start">
                         <td class="items-start px-6 py-3 text-xs">{{ $rm->commodity->name ?? '' }}</td>
                         <td class="items-start px-6 py-3 text-xs">{{ $rm->start_date }}</td>
                         <td class="items-start px-3 py-3 text-xs">{{ $rm->latest_update->participants_involved ?? '' }}</td>
