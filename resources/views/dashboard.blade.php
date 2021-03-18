@@ -117,7 +117,7 @@
                 <tr>
                     <td class="items-start px-3 py-3 text-xs">{{ $office->name }}</td>
                     <td class="items-start px-9 py-3 text-xs" colspan="5"></td>
-                    <td class="items-start px-3 py-3 text-xs">{{ $office->latest_report->report_period->name ?? '' }}</td>
+                    <td class="items-start px-3 py-3 text-xs text-center">{{ $office->latest_report->report_period->name ?? '' }}</td>
                     <td class="items-start px-3 py-3 text-xs text-center">
                         @if($office->latest_report && $office->latest_report->attachment_url)
                             <a href="{{ $office->latest_report->attachment_url ?? '#' }}" target="_blank">
@@ -130,12 +130,32 @@
                 </tr>
                 @forelse($office->roadmaps as $rm)
                     <tr class="items-start">
-                        <td class="items-start px-6 py-3 text-xs">{{ $rm->commodity->name ?? '' }}</td>
-                        <td class="items-start px-6 py-3 text-xs">{{ $rm->start_date }}</td>
-                        <td class="items-start px-3 py-3 text-xs">{{ $rm->latest_update->participants_involved ?? '' }}</td>
-                        <td class="items-start px-3 py-3 text-xs">{{ $rm->latest_update->activities_done ?? '' }}</td>
-                        <td class="items-start px-3 py-3 text-xs">{{ $rm->latest_update->activities_ongoing ?? '' }}</td>
-                        <td class="items-start px-3 py-3 text-xs">
+                        <td class="px-6 py-3 text-xs">
+                            <span class="inline-block items-start">
+                                {{ $rm->commodity->name ?? '' }}
+                            </span>
+                        </td>
+                        <td class="px-6 py-3 text-xs">
+                            <span class="inline-block items-start">
+                            {{ $rm->start_date }}
+                            </span>
+                        </td>
+                        <td class="px-3 py-3 text-xs">
+                            <span class="inline-block items-start">
+                            {{ $rm->latest_update->participants_involved ?? '' }}
+                            </span>
+                        </td>
+                        <td class="px-3 py-3 text-xs">
+                            <span class="inline-block items-start">
+                            {{ $rm->latest_update->activities_done ?? '' }}
+                            </span>
+                        </td>
+                        <td class="px-3 py-3 text-xs">
+                            <span class="inline-block items-start">
+                            {{ $rm->latest_update->activities_ongoing ?? '' }}
+                            </span>
+                        </td>
+                        <td class="px-3 py-3 text-xs">
                             <span class="inline-block items-start">
                                 {{ $rm->latest_update->overall_status ?? '' }}
                             </span>
