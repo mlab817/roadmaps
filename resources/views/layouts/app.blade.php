@@ -27,10 +27,6 @@
                 </div>
             </header>
 
-            @if(session('message'))
-                <x-banner></x-banner>
-            @endif
-
             <!-- Page Content -->
             <main>
                 <div class="pt-6 pb-12">
