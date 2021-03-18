@@ -129,43 +129,29 @@
                     </td>
                 </tr>
                 @forelse($office->roadmaps as $rm)
-                    <tr class="items-start">
-                        <td class="px-6 py-3 text-xs">
-                            <div class="flex items-start">
-                                {{ $rm->commodity->name ?? '' }}
-                            </div>
+                    <tr>
+                        <td class="px-6 py-3 text-xs align-top">
+                            {{ $rm->commodity->name ?? '' }}
                         </td>
-                        <td class="px-6 py-3 text-xs">
-                            <div class="flex items-start">
+                        <td class="px-6 py-3 text-xs align-top">
                             {{ $rm->start_date }}
-                            </div>
                         </td>
-                        <td class="px-3 py-3 text-xs">
-                            <span class="inline-block items-start">
+                        <td class="px-3 py-3 text-xs align-top">
                             {{ $rm->latest_update->participants_involved ?? '' }}
-                            </span>
                         </td>
-                        <td class="px-3 py-3 text-xs">
-                            <span class="inline-block items-start">
+                        <td class="px-3 py-3 text-xs align-top">
                             {{ $rm->latest_update->activities_done ?? '' }}
-                            </span>
                         </td>
-                        <td class="px-3 py-3 text-xs">
-                            <span class="inline-block items-start">
+                        <td class="px-3 py-3 text-xs align-top">
                             {{ $rm->latest_update->activities_ongoing ?? '' }}
-                            </span>
                         </td>
-                        <td class="px-3 py-3 text-xs">
-                            <span class="inline-block items-start">
-                                {{ $rm->latest_update->overall_status ?? '' }}
-                            </span>
+                        <td class="px-3 py-3 text-xs align-top">
+                            {{ $rm->latest_update->overall_status ?? '' }}
                         </td>
-                        <td class="items-start py-3 text-xs">
-                            <span class="inline-block items-start">
-                                {{ $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}
-                            </span>
+                        <td class="items-start py-3 text-xs align-top">
+                            {{ $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}
                         </td>
-                        <td class="items-start py-3 text-xs text-center">
+                        <td class="items-start py-3 text-xs text-center align-top">
                             <span class="inline-block items-start">
                                 @if($rm->latest_update && $rm->latest_update->attachment_url)
                                     <a href="{{ $rm->latest_update->attachment_url }}" target="_blank">
@@ -179,12 +165,12 @@
                     </tr>
                 @empty
                     <tr>
-                        <td class="px-6 py-3 text-center text-red-500" colspan="8">No roadmaps found</td>
+                        <td class="px-6 py-3 text-xs text-center text-red-500" colspan="8">No roadmaps found</td>
                     </tr>
                 @endforelse
             @empty
                 <tr>
-                    <td class="px-6 py-3 text-center text-red-500" colspan="8">No offices found</td>
+                    <td class="px-6 py-3 text-xs text-center text-red-500" colspan="8">No offices found</td>
                 </tr>
             @endforelse
             </tbody>
