@@ -114,7 +114,7 @@
             </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
-            @foreach($offices as $office)
+            @forelse($offices as $office)
                 <tr>
                     <td class="px-3 py-3 text-xs">{{ $office->name }}</td>
                     <td class="px-9 py-3 text-xs" colspan="5"></td>
@@ -149,7 +149,11 @@
                         </td>
                     </tr>
                 @endforeach
-            @endforeach
+            @empty
+                <tr>
+                    <td class="px-6 py-3 text-center text-red-500" colspan="8">No entries found</td>
+                </tr>
+            @endforelse
             </tbody>
         </table>
     </div>
