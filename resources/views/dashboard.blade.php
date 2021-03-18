@@ -145,7 +145,7 @@
                                 {{ $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}
                             </span>
                         </td>
-                        <td class="items-start py-3 text-xs">
+                        <td class="items-start py-3 text-xs text-center">
                             <span class="inline-block items-start">
                                 @if($rm->latest_update && $rm->latest_update->attachment_url)
                                     <a href="{{ $rm->latest_update->attachment_url }}" target="_blank">
