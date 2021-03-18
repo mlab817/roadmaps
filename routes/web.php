@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommodityController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FocalController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\PermissionController;
@@ -34,7 +35,7 @@ Route::post('/logout', [SocialLoginController::class, 'logout'])
 
 Route::view('/','welcome')->name('welcome');
 
-Route::view('/dashboard','dashboard')->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard',[DashboardController::class,'dashboard'])->middleware(['auth'])->name('dashboard');
 
 Route::group(['middleware'=>'auth'], function() {
     Route::resources([
