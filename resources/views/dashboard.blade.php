@@ -138,7 +138,7 @@
                         <td class="items-start py-3 text-xs text-center">{{ $rm->latest_update->overall_status ?? '' }}</td>
                         <td class="items-start py-3 text-xs text-center">{{ $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}</td>
                         <td class="items-start py-3 text-xs text-center">
-                            <div>
+                            <span class="inline-block align-items-start">
                                 @if($rm->latest_update && $rm->latest_update->attachment_url)
                                     <a href="{{ $rm->latest_update->attachment_url }}" target="_blank">
                                         <svg class="inline h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -146,7 +146,7 @@
                                         </svg>
                                     </a>
                                 @endif
-                            </div>
+                            </span>
                         </td>
                     </tr>
                 @empty
