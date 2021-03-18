@@ -136,7 +136,7 @@
                         <td class="py-3 text-xs text-center">{{ $rm->latest_update->activities_done ?? '' }}</td>
                         <td class="py-3 text-xs text-center">{{ $rm->latest_update->activities_ongoing ?? '' }}</td>
                         <td class="py-3 text-xs text-center">{{ $rm->latest_update->overall_status ?? '' }}</td>
-                        <td class="py-3 text-xs text-center">{{ $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}</td>
+                        <td class="py-3 text-xs text-center">{{ $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}</td>
                         <td class="py-3 text-xs text-center">
                             @if($rm->attachment_url)
                                 <a href="{{ $rm->attachment_url }}" target="_blank">
