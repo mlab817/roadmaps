@@ -175,7 +175,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="px-6 py-3 text-xs text-center">No items found.</td>
+                                <td colspan="4" class="px-6 py-3 text-xs text-center">No items found.</td>
                             </tr>
                         @endforelse
                         </tbody>
