@@ -130,22 +130,22 @@
                 </tr>
                 @forelse($office->roadmaps as $rm)
                     <tr>
-                        <td class="items-start px-6 py-3 text-xs text-left">{{ $rm->commodity->name ?? '' }}</td>
-                        <td class="items-start px-6 py-3 text-xs text-center">{{ $rm->start_date }}</td>
-                        <td class="items-start py-3 text-xs text-center">{{ $rm->latest_update->participants_involved ?? '' }}</td>
-                        <td class="items-start py-3 text-xs text-center">{{ $rm->latest_update->activities_done ?? '' }}</td>
-                        <td class="items-start py-3 text-xs text-center">{{ $rm->latest_update->activities_ongoing ?? '' }}</td>
-                        <td class="items-start py-3 text-xs text-center">
+                        <td class="items-start px-6 py-3 text-xs">{{ $rm->commodity->name ?? '' }}</td>
+                        <td class="items-start px-6 py-3 text-xs">{{ $rm->start_date }}</td>
+                        <td class="items-start py-3 text-xs">{{ $rm->latest_update->participants_involved ?? '' }}</td>
+                        <td class="items-start py-3 text-xs">{{ $rm->latest_update->activities_done ?? '' }}</td>
+                        <td class="items-start py-3 text-xs">{{ $rm->latest_update->activities_ongoing ?? '' }}</td>
+                        <td class="items-start py-3 text-xs">
                             <span class="inline-block items-start">
                                 {{ $rm->latest_update->overall_status ?? '' }}
                             </span>
                         </td>
-                        <td class="items-start py-3 text-xs text-center">
+                        <td class="items-start py-3 text-xs">
                             <span class="inline-block items-start">
                                 {{ $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}
                             </span>
                         </td>
-                        <td class="items-start py-3 text-xs text-center">
+                        <td class="items-start py-3 text-xs">
                             <span class="inline-block items-start">
                                 @if($rm->latest_update && $rm->latest_update->attachment_url)
                                     <a href="{{ $rm->latest_update->attachment_url }}" target="_blank">
