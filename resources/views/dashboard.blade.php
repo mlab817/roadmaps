@@ -99,7 +99,7 @@
                 SUMMARY
             </h2>
         </div>
-        <table class="table-fixed min-w-full">
+        <table class="table-fixed w-full">
             <thead>
             <tr class="bg-gray-100">
                 <x-tables.th>Office/Roadmap</x-tables.th>
