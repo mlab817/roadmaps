@@ -134,9 +134,9 @@
                         <thead>
                             <tr class="bg-gray-50">
                                 <x-tables.th>Report Period</x-tables.th>
-                                <x-tables.th>Participants Involved</x-tables.th>
-                                <x-tables.th>Activities Done</x-tables.th>
-                                <x-tables.th>Activities Ongoing</x-tables.th>
+{{--                                <x-tables.th>Participants Involved</x-tables.th>--}}
+{{--                                <x-tables.th>Activities Done</x-tables.th>--}}
+{{--                                <x-tables.th>Activities Ongoing</x-tables.th>--}}
                                 <x-tables.th>Overall Status</x-tables.th>
                                 <x-tables.th>Attachment</x-tables.th>
                                 <x-tables.th></x-tables.th>
@@ -148,15 +148,15 @@
                                 <td class="px-6 py-3 text-xs text-center items-start break-words">
                                     {{ $item->progress_report->report_period->name ?? '' }}
                                 </td>
-                                <td class="px-6 py-3 text-xs text-center items-start break-words">
-                                    {{ $item->participants_involved }}
-                                </td>
-                                <td class="px-6 py-3 text-xs text-center items-start break-words">
-                                    {{ $item->activities_done }}
-                                </td>
-                                <td class="px-6 py-3 text-xs text-center items-start break-words">
-                                    {{ $item->activities_ongoing }}
-                                </td>
+{{--                                <td class="px-6 py-3 text-xs text-center items-start break-words">--}}
+{{--                                    {{ $item->participants_involved }}--}}
+{{--                                </td>--}}
+{{--                                <td class="px-6 py-3 text-xs text-center items-start break-words">--}}
+{{--                                    {{ $item->activities_done }}--}}
+{{--                                </td>--}}
+{{--                                <td class="px-6 py-3 text-xs text-center items-start break-words">--}}
+{{--                                    {{ $item->activities_ongoing }}--}}
+{{--                                </td>--}}
                                 <td class="px-6 py-3 text-xs text-center items-start break-words">
                                     {{ $item->overall_status }}
                                 </td>
