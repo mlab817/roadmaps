@@ -135,10 +135,18 @@
                         <td class="items-start py-3 text-xs text-center">{{ $rm->latest_update->participants_involved ?? '' }}</td>
                         <td class="items-start py-3 text-xs text-center">{{ $rm->latest_update->activities_done ?? '' }}</td>
                         <td class="items-start py-3 text-xs text-center">{{ $rm->latest_update->activities_ongoing ?? '' }}</td>
-                        <td class="items-start py-3 text-xs text-center">{{ $rm->latest_update->overall_status ?? '' }}</td>
-                        <td class="items-start py-3 text-xs text-center">{{ $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}</td>
                         <td class="items-start py-3 text-xs text-center">
-                            <span class="inline-block align-items-start">
+                            <span class="inline-block items-start">
+                                {{ $rm->latest_update->overall_status ?? '' }}
+                            </span>
+                        </td>
+                        <td class="items-start py-3 text-xs text-center">
+                            <span class="inline-block items-start">
+                                {{ $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}
+                            </span>
+                        </td>
+                        <td class="items-start py-3 text-xs text-center">
+                            <span class="inline-block items-start">
                                 @if($rm->latest_update && $rm->latest_update->attachment_url)
                                     <a href="{{ $rm->latest_update->attachment_url }}" target="_blank">
                                         <svg class="inline h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
