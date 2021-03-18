@@ -115,10 +115,10 @@
             <tbody class="divide-y divide-gray-100">
             @forelse($offices as $office)
                 <tr>
-                    <td class="flex items-start px-3 py-3 text-xs">{{ $office->name }}</td>
-                    <td class="flex items-start px-9 py-3 text-xs" colspan="5"></td>
-                    <td class="flex items-start px-6 py-3 text-xs">{{ $office->latest_report->report_period->name ?? '' }}</td>
-                    <td class="flex items-start py-3 text-xs text-center">
+                    <td class="items-start px-3 py-3 text-xs">{{ $office->name }}</td>
+                    <td class="items-start px-9 py-3 text-xs" colspan="5"></td>
+                    <td class="items-start px-6 py-3 text-xs">{{ $office->latest_report->report_period->name ?? '' }}</td>
+                    <td class="items-start py-3 text-xs text-center">
                         @if($office->latest_report && $office->latest_report->attachment_url)
                             <a href="{{ $office->latest_report->attachment_url ?? '#' }}" target="_blank">
                                 <svg class="inline h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -130,14 +130,14 @@
                 </tr>
                 @forelse($office->roadmaps as $rm)
                     <tr>
-                        <td class="flex items-start px-6 py-3 text-xs text-left">{{ $rm->commodity->name ?? '' }}</td>
-                        <td class="flex items-start px-6 py-3 text-xs text-center">{{ $rm->start_date }}</td>
-                        <td class="flex items-start py-3 text-xs text-center">{{ $rm->latest_update->participants_involved ?? '' }}</td>
-                        <td class="flex items-start py-3 text-xs text-center">{{ $rm->latest_update->activities_done ?? '' }}</td>
-                        <td class="flex items-start py-3 text-xs text-center">{{ $rm->latest_update->activities_ongoing ?? '' }}</td>
-                        <td class="flex items-start py-3 text-xs text-center">{{ $rm->latest_update->overall_status ?? '' }}</td>
-                        <td class="flex items-start py-3 text-xs text-center">{{ $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}</td>
-                        <td class="flex items-start py-3 text-xs text-center">
+                        <td class="items-start px-6 py-3 text-xs text-left">{{ $rm->commodity->name ?? '' }}</td>
+                        <td class="items-start px-6 py-3 text-xs text-center">{{ $rm->start_date }}</td>
+                        <td class="items-start py-3 text-xs text-center">{{ $rm->latest_update->participants_involved ?? '' }}</td>
+                        <td class="items-start py-3 text-xs text-center">{{ $rm->latest_update->activities_done ?? '' }}</td>
+                        <td class="items-start py-3 text-xs text-center">{{ $rm->latest_update->activities_ongoing ?? '' }}</td>
+                        <td class="items-start py-3 text-xs text-center">{{ $rm->latest_update->overall_status ?? '' }}</td>
+                        <td class="items-start py-3 text-xs text-center">{{ $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}</td>
+                        <td class="items-start py-3 text-xs text-center">
                             @if($rm->latest_update && $rm->latest_update->attachment_url)
                                 <a href="{{ $rm->latest_update->attachment_url }}" target="_blank">
                                     <svg class="inline h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
