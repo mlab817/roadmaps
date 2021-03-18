@@ -131,14 +131,14 @@
                 @forelse($office->roadmaps as $rm)
                     <tr class="items-start">
                         <td class="px-6 py-3 text-xs">
-                            <span class="inline-block items-start">
+                            <div class="flex items-start">
                                 {{ $rm->commodity->name ?? '' }}
-                            </span>
+                            </div>
                         </td>
                         <td class="px-6 py-3 text-xs">
-                            <span class="inline-block items-start">
+                            <div class="flex items-start">
                             {{ $rm->start_date }}
-                            </span>
+                            </div>
                         </td>
                         <td class="px-3 py-3 text-xs">
                             <span class="inline-block items-start">
