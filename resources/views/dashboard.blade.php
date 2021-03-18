@@ -148,7 +148,7 @@
                         <td class="px-3 py-3 text-xs align-top">
                             {{ $rm->latest_update->overall_status ?? '' }}
                         </td>
-                        <td class="items-start py-3 text-xs align-top">
+                        <td class="items-start py-3 text-xs text-center align-top">
                             {{ $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}
                         </td>
                         <td class="items-start py-3 text-xs text-center align-top">
