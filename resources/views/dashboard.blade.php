@@ -137,16 +137,16 @@
                             {{ $rm->start_date }}
                         </td>
                         <td class="px-3 py-3 text-xs align-top">
-                            {!! nl2br($rm->latest_update->participants_involved) ?? ''  !!}
+                            {!! nl2br($rm->latest_update->participants_involved ?? '') !!}
                         </td>
                         <td class="px-3 py-3 text-xs align-top">
-                            {!! nl2br($rm->latest_update->activities_done) ?? '' !!}
+                            {!! nl2br($rm->latest_update->activities_done ?? '')  !!}
                         </td>
                         <td class="px-3 py-3 text-xs align-top">
-                            {!! nl2br($rm->latest_update->activities_ongoing) ?? '' !!}
+                            {!! nl2br($rm->latest_update->activities_ongoing ?? '') !!}
                         </td>
                         <td class="px-3 py-3 text-xs align-top">
-                            {!! nl2br($rm->latest_update->overall_status) ?? '' !!}
+                            {!! nl2br($rm->latest_update->overall_status ?? '') !!}
                         </td>
                         <td class="items-start py-3 text-xs text-center align-top">
                             {{ $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}
