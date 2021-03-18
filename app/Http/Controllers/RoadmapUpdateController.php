@@ -106,7 +106,9 @@ class RoadmapUpdateController extends Controller
      */
     public function show(RoadmapUpdate $roadmapUpdate)
     {
-        //
+        $roadmap_update = $roadmapUpdate->load('roadmap.commodity','roadmap.office','progress_report');
+
+        return view('roadmap-updates.show', compact('roadmap_update'));
     }
 
     /**

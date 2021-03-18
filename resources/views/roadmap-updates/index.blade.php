@@ -61,6 +61,7 @@
                         <a class="text-blue-500 hover:text-blue-900" href="{{ $item->attachment_url }}" target="_blank">View</a>
                     </td>
                     <td class="px-6 py-3 text-xs text-center">
+                        <a href="{{ route('roadmap-updates.show', ['roadmap_update' => $item->id]) }}" class="text-blue-500 text-blue-900">View</a> |
                         <a href="{{ route('roadmap-updates.edit', ['roadmap_update' => $item->id]) }}" class="text-blue-500 text-blue-900">Edit</a> |
                         <form class="inline inline-flex" action="{{ route('roadmap-updates.destroy', $item->id) }}" method="POST">
                             @csrf
