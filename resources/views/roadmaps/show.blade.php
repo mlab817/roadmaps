@@ -143,7 +143,7 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-gray-500">
-                        @forelse($roadmap->roadmap_updates as $item)
+                        @forelse($roadmap->roadmap_updates->sortBy('progress_report.report_period_id') as $item)
                             <tr>
                                 <td class="px-6 py-3 text-xs text-center items-start break-words">
                                     {{ $item->progress_report->report_period->name ?? '' }}

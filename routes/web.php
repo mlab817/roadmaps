@@ -36,14 +36,17 @@ Route::view('/','welcome')->name('welcome');
 
 Route::view('/dashboard','dashboard')->middleware(['auth'])->name('dashboard');
 
-Route::resources([
-    'commodities'       => CommodityController::class,
-    'focals'            => FocalController::class,
-    'roadmaps'          => RoadmapController::class,
-    'offices'           => OfficeController::class,
-    'progress-reports'  => ProgressReportController::class,
-    'roadmap-updates'   => RoadmapUpdateController::class,
-    'roles'             => RoleController::class,
-    'permissions'       => PermissionController::class,
-    'users'             => UserController::class,
-]);
+Route::group(['middleware'=>'auth'], function() {
+    Route::resources([
+        'commodities'       => CommodityController::class,
+        'focals'            => FocalController::class,
+        'roadmaps'          => RoadmapController::class,
+        'offices'           => OfficeController::class,
+        'progress-reports'  => ProgressReportController::class,
+        'roadmap-updates'   => RoadmapUpdateController::class,
+        'roles'             => RoleController::class,
+        'permissions'       => PermissionController::class,
+        'users'             => UserController::class,
+    ]);
+});
+
