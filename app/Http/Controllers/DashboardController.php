@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\DashboardExport;
 use App\Models\Office;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class DashboardController extends Controller
 {
@@ -17,5 +20,10 @@ class DashboardController extends Controller
         ])->get();
 
         return view('dashboard', compact('offices'));
+    }
+
+    public function export(): BinaryFileResponse
+    {
+        return Excel::download(new DashboardExport, 'dashboard.xlsx');
     }
 }

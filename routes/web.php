@@ -36,6 +36,7 @@ Route::post('/logout', [SocialLoginController::class, 'logout'])
 Route::view('/','welcome')->name('welcome');
 
 Route::get('/dashboard',[DashboardController::class,'dashboard'])->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard/export', [DashboardController::class, 'export'])->middleware(['auth'])->name('dashboard.export');
 
 Route::group(['middleware'=>'auth'], function() {
     Route::resources([
