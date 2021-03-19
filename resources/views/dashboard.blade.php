@@ -5,22 +5,18 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div>
         <!-- This example requires Tailwind CSS v2.0+ -->
-        <div class="py-12 bg-white">
+        <div class="bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="lg:text-center">
                     <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">ROADMAP UPDATING MONITORING SYSTEM</h2>
                     <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                         Roadmap development is paramount.
                     </p>
-                    <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    <p class="mt-4 max-w-2xl text-md text-gray-500 lg:mx-auto">
                         The government, through the Department of Agriculture, should take the lead in generating the “big ideas” for the roadmap, and should solicit inputs from the private sector and other stakeholders.
-                    </p>
-                    <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
                         The roadmap should also actively involve the private sector, which may have more access to the export markets and funding for research for development.
-                    </p>
-                    <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
                         A value-chain approach to level up Philippine agriculture, while making sure the smallholders also earn their fair share of the fruits of production along the value chain.
                     </p>
                 </div>
@@ -132,7 +128,9 @@
                 @forelse($office->roadmaps as $rm)
                     <tr>
                         <td class="px-6 py-3 text-xs align-top">
-                            {{ $rm->commodity->name ?? '' }}
+                            <a href="{{ route('roadmaps.show', ['roadmap' => $rm->id]) }}" class="text-blue-500 hover:text-blue-900">
+                                {{ $rm->commodity->name ?? '' }}
+                            </a>
                         </td>
                         <td class="px-6 py-3 text-xs align-top">
                             {{ $rm->start_date }}
