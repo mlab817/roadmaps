@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="261ac3e3-52a5-4e20-a354-80f1627e0350" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/DashboardExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/DashboardExport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/exports/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/exports/dashboard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -166,6 +167,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="DEFAULT" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -199,7 +201,7 @@
       <workItem from="1616032691247" duration="3772000" />
       <workItem from="1616044055192" duration="11881000" />
       <workItem from="1616115713929" duration="1163000" />
-      <workItem from="1616119773518" duration="3081000" />
+      <workItem from="1616119773518" duration="4670000" />
     </task>
     <servers />
   </component>

@@ -14,13 +14,17 @@
     @foreach($offices as $office)
         <tr>
             <td class="items-start px-3 py-3 text-xs">{{ $loop->index + 1 . '. ' . $office->name }}</td>
-            <td class="items-start px-9 py-3 text-xs" colspan="5"></td>
+            <td class="items-start px-9 py-3 text-xs"></td>
+            <td class="items-start px-9 py-3 text-xs"></td>
+            <td class="items-start px-9 py-3 text-xs"></td>
+            <td class="items-start px-9 py-3 text-xs"></td>
+            <td class="items-start px-9 py-3 text-xs"></td>
             <td class="items-start px-3 py-3 text-xs text-center">{{ $office->latest_report->report_period->name ?? '' }}</td>
         </tr>
         @foreach($office->roadmaps as $rm)
             <tr>
                 <td class="px-6 py-3 text-xs align-top">
-                    {{ $rm->commodity->name ?? '' }}
+                    -- {{ $rm->commodity->name ?? '' }}
                 </td>
                 <td class="px-6 py-3 text-xs align-top">
                     {{ $rm->start_date }}
