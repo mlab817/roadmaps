@@ -114,9 +114,8 @@
             </thead>
             <tbody class="divide-y divide-gray-100">
             @forelse($offices as $office)
-                <tr>
-                    <td class="items-start px-3 py-3 text-xs">{{ $office->name }}</td>
-                    <td class="items-start px-9 py-3 text-xs" colspan="5"></td>
+                <tr class="bg-gray-50">
+                    <td class="items-start px-3 py-3 text-xs" colspan="6">{{ $loop->index + 1 . '. ' . $office->name }}</td>
                     <td class="items-start px-3 py-3 text-xs text-center">{{ $office->latest_report->report_period->name ?? '' }}</td>
                     <td class="items-start px-3 py-3 text-xs text-center">
                         @if($office->latest_report && $office->latest_report->attachment_url)
@@ -127,7 +126,7 @@
                             </a>
                         @endif
                     </td>
-                    <td class="items-start px-3 py-3 text-xs text-center @if($office->latest_report ? ($office->latest_report->updated_at->diffInDays() > 14) : null) text-red-500 bg-red-100 @endif">
+                    <td class="items-start px-3 py-3 text-xs text-center @if($office->latest_report ? ($office->latest_report->updated_at->diffInDays() > 15) : null) text-red-500 bg-red-100 @endif">
                         {!! $office->latest_report ? $office->latest_report->updated_at->diffForHumans(null, null, true) : '' !!}
                     </td>
                 </tr>
@@ -167,7 +166,7 @@
                                 @endif
                             </span>
                         </td>
-                        <td class="items-start py-3 text-xs text-center align-top @if($rm->latest_update ? ($rm->latest_update->updated_at->diffInDays() > 14) : null) text-red-500 bg-red-100 @endif">
+                        <td class="items-start py-3 text-xs text-center align-top @if($rm->latest_update ? ($rm->latest_update->updated_at->diffInDays() > 15) : null) text-red-500 bg-red-100 @endif">
                             {!! $rm->latest_update ? $rm->latest_update->updated_at->diffForHumans(null, null, true) : '' !!}
                         </td>
                     </tr>
