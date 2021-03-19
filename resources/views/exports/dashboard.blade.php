@@ -39,7 +39,7 @@
                     <td></td>
                     <td></td>
                     <td>
-                        {!! addslashes($rm->latest_update->participants_involved ?? '') !!}
+                        {!! str_replace("'",'',$rm->latest_update->participants_involved ?? '') !!}
                     </td>
 {{--                    <td>--}}
 {{--                        {!! $rm->latest_update->activities_done ?? '' !!}--}}
