@@ -24,22 +24,22 @@
         @foreach($office->roadmaps as $rm)
             <tr>
                 <td>
-                    -- {{ $rm->commodity->name ?? '' }}
+                    {{ $rm->commodity->name ?? '' }}
                 </td>
                 <td>
                     {{ $rm->start_date }}
                 </td>
                 <td>
-                    {!! nl2br($rm->latest_update->participants_involved ?? '') !!}
+                    {!! $rm->latest_update->participants_involved ?? '' !!}
                 </td>
                 <td>
-                    {!! nl2br($rm->latest_update->activities_done ?? '')  !!}
+                    {!! $rm->latest_update->activities_done ?? '' !!}
                 </td>
                 <td>
-                    {!! nl2br($rm->latest_update->activities_ongoing ?? '') !!}
+                    {!! $rm->latest_update->activities_ongoing ?? '' !!}
                 </td>
                 <td>
-                    {!! nl2br($rm->latest_update->overall_status ?? '') !!}
+                    {!! $rm->latest_update->overall_status ?? '' !!}
                 </td>
                 <td>
                     {{ $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}
