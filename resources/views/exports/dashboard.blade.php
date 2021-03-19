@@ -8,17 +8,16 @@
             <th>Ongoing Activities</th>
             <th>Overall Status</th>
             <th>As of</th>
-            <th>Attachment</th>
         </tr>
     </thead>
     <tbody class="divide-y divide-gray-100">
-    @forelse($offices as $office)
+    @foreach($offices as $office)
         <tr>
-            <td class="items-start px-3 py-3 text-xs">{{ $office->name }}</td>
+            <td class="items-start px-3 py-3 text-xs">{{ $loop->index + 1 . '. ' . $office->name }}</td>
             <td class="items-start px-9 py-3 text-xs" colspan="5"></td>
             <td class="items-start px-3 py-3 text-xs text-center">{{ $office->latest_report->report_period->name ?? '' }}</td>
         </tr>
-        @forelse($office->roadmaps as $rm)
+        @foreach($office->roadmaps as $rm)
             <tr>
                 <td class="px-6 py-3 text-xs align-top">
                     {{ $rm->commodity->name ?? '' }}
@@ -42,15 +41,7 @@
                     {{ $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}
                 </td>
             </tr>
-        @empty
-            <tr>
-                <td class="px-6 py-3 text-xs text-center text-red-500" colspan="7">No roadmaps found</td>
-            </tr>
-        @endforelse
-    @empty
-        <tr>
-            <td class="px-6 py-3 text-xs text-center text-red-500" colspan="7">No offices found</td>
-        </tr>
-    @endforelse
+        @endforeach
+    @endforeach
     </tbody>
 </table>
