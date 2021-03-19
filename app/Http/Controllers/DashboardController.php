@@ -22,6 +22,18 @@ class DashboardController extends Controller
         return view('dashboard', compact('offices'));
     }
 
+    public function preview_export()
+    {
+        $offices = $offices = Office::with([
+            'latest_report.roadmap_updates',
+            'latest_report.report_period',
+            'roadmaps.commodity',
+            'roadmaps.latest_update'
+        ])->get();
+
+        return view('exports.dashboard', compact('offices'));
+    }
+
     public function export(): BinaryFileResponse
     {
         return Excel::download(new DashboardExport, 'dashboard.xlsx');
