@@ -107,6 +107,9 @@
                 <x-tables.th>Overall Status</x-tables.th>
                 <x-tables.th>As of</x-tables.th>
                 <x-tables.th>Attachment</x-tables.th>
+                <x-tables.th>
+                    Last Updated
+                </x-tables.th>
             </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
@@ -123,6 +126,9 @@
                                 </svg>
                             </a>
                         @endif
+                    </td>
+                    <td class="items-start px-3 py-3 text-xs text-center @if($office->latest_report ? ($office->latest_report->updated_at->diffInDays() > 14) : null) text-red-500 bg-red-100 @endif">
+                        {!! $office->latest_report ? $office->latest_report->updated_at->diffForHumans(null, null, true) : '' !!}
                     </td>
                 </tr>
                 @forelse($office->roadmaps as $rm)
@@ -160,6 +166,9 @@
                                     </a>
                                 @endif
                             </span>
+                        </td>
+                        <td class="items-start py-3 text-xs text-center align-top @if($rm->latest_update ? ($rm->latest_update->updated_at->diffInDays() > 14) : null) text-red-500 bg-red-100 @endif">
+                            {!! $rm->latest_update ? $rm->latest_update->updated_at->diffForHumans(null, null, true) : '' !!}
                         </td>
                     </tr>
                 @empty
