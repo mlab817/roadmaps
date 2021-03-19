@@ -98,7 +98,7 @@
             <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">
                 SUMMARY
             </h2>
-            <a href="{{ route('dashboard.preview') }}" class="text-xs text-blue-500 hover:text-blue-900">Export Table</a>
+            <a href="{{ route('dashboard.export') }}" class="text-xs text-blue-500 hover:text-blue-900">Export Table</a>
         </div>
         <table class="table-fixed w-full">
             <thead>
