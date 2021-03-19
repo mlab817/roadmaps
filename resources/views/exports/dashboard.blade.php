@@ -13,7 +13,7 @@
     <tbody>
     @foreach($offices as $office)
         <tr>
-            <td>{{ $loop->index + 1 . '. ' . $office->name }}</td>
+            <td>{!! $loop->index + 1 . '. ' . $office->name  !!}</td>
             <td></td>
             <td></td>
             <td></td>
@@ -24,10 +24,10 @@
         @foreach($office->roadmaps as $rm)
             <tr>
                 <td>
-                    {{ $rm->commodity->name ?? '' }}
+                    {!! $rm->commodity->name ?? '' !!}
                 </td>
                 <td>
-                    {{ $rm->start_date }}
+                    {!! $rm->start_date  !!}
                 </td>
                 <td>
                     {!! $rm->latest_update->participants_involved ?? '' !!}
@@ -42,7 +42,7 @@
                     {!! $rm->latest_update->overall_status ?? '' !!}
                 </td>
                 <td>
-                    {{ $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : '' }}
+                    {!! $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : ''  !!}
                 </td>
             </tr>
         @endforeach
