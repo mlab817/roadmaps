@@ -27,14 +27,18 @@
                 <td></td>
                 <td>{{ $office->latest_report->report_period->name ?? '' }}</td>
             </tr>
-{{--            @foreach($office->roadmaps as $rm)--}}
-{{--                <tr>--}}
-{{--                    <td>--}}
-{{--                        {!! $rm->commodity->name ?? '' !!}--}}
-{{--                    </td>--}}
-{{--                    <td>--}}
-{{--                        {!! $rm->start_date  !!}--}}
-{{--                    </td>--}}
+            @foreach($office->roadmaps as $rm)
+                <tr>
+                    <td>
+                        {!! $rm->commodity->name ?? '' !!}
+                    </td>
+                    <td>
+                        {!! $rm->start_date  !!}
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
 {{--                    <td>--}}
 {{--                        {!! $rm->latest_update->participants_involved ?? '' !!}--}}
 {{--                    </td>--}}
@@ -50,8 +54,8 @@
 {{--                    <td>--}}
 {{--                        {!! $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : ''  !!}--}}
 {{--                    </td>--}}
-{{--                </tr>--}}
-{{--            @endforeach--}}
+                </tr>
+            @endforeach
         @endforeach
         </tbody>
     </table>
