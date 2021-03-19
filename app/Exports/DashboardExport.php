@@ -13,7 +13,7 @@ class DashboardExport implements FromView
     */
     public function view(): View
     {
-        return view('dashboard', [
+        return view('exports.dashboard', [
             'offices'   => Office::with([
                                 'latest_report.roadmap_updates',
                                 'latest_report.report_period',
