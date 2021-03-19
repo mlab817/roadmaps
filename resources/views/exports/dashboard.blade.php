@@ -39,7 +39,7 @@
                     <td></td>
                     <td></td>
                     <td>
-                        {!! preg_replace("/[^A-Za-z0-9. ]/", '', $rm->latest_update->participants_involved ?? '') !!}
+                        {!! preg_replace("/[^A-Za-z0-9.// ]/", '', $rm->latest_update->participants_involved ?? '') !!}
                     </td>
 {{--                    <td>--}}
 {{--                        {!! $rm->latest_update->activities_done ?? '' !!}--}}
