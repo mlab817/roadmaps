@@ -4,36 +4,35 @@ namespace App\Exports;
 
 use App\Models\Office;
 use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class DashboardExport implements FromView, WithStyles, WithColumnWidths
+class DashboardExport implements FromView, WithStyles, WithColumnWidths, WithHeadings
 {
-    /**
-     * @return View
-     */
     public function view(): View
     {
         return view('exports.dashboard', [
-            'offices'   => Office::with([
-                                'latest_report.roadmap_updates',
-                                'latest_report.report_period',
-                                'roadmaps.commodity',
-                                'roadmaps.latest_update'
-                            ])->get(),
+            'offices' => Office::with([
+                'latest_report.roadmap_updates',
+                'latest_report.report_period',
+                'roadmaps.commodity',
+                'roadmaps.latest_update'
+            ])->get(),
         ]);
     }
 
     public function styles(Worksheet $sheet)
     {
         return [
-            1           => [
+            1       => [
                 'font' => ['bold' => true, 'align' => 'center'],
                 'alignment' => ['horizontal' => 'center']
             ],
-            'A:G'     => ['alignment' => ['vertical' => 'top', 'wrapText' => true]]
+            'A:G'   => ['alignment' => ['vertical' => 'top', 'wrapText' => true]]
         ];
     }
 
@@ -50,6 +49,22 @@ class DashboardExport implements FromView, WithStyles, WithColumnWidths
             'E' => 30,
             'F' => 30,
             'G' => 15,
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function headings(): array
+    {
+        return [
+            'Office/Roadmap',
+            'Date Started',
+            'Participants Involved',
+            'Activities Done',
+            'Ongoing Activities',
+            'Overall Status',
+            'As of',
         ];
     }
 }
