@@ -27,31 +27,31 @@
                 <td></td>
                 <td>{{ $office->latest_report->report_period->name ?? '' }}</td>
             </tr>
-            @foreach($office->roadmaps as $rm)
-                <tr>
-                    <td>
-                        {!! $rm->commodity->name ?? '' !!}
-                    </td>
-                    <td>
-                        {!! $rm->start_date  !!}
-                    </td>
-                    <td>
-                        {!! $rm->latest_update->participants_involved ?? '' !!}
-                    </td>
-                    <td>
-                        {!! $rm->latest_update->activities_done ?? '' !!}
-                    </td>
-                    <td>
-                        {!! $rm->latest_update->activities_ongoing ?? '' !!}
-                    </td>
-                    <td>
-                        {!! $rm->latest_update->overall_status ?? '' !!}
-                    </td>
-                    <td>
-                        {!! $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : ''  !!}
-                    </td>
-                </tr>
-            @endforeach
+{{--            @foreach($office->roadmaps as $rm)--}}
+{{--                <tr>--}}
+{{--                    <td>--}}
+{{--                        {!! $rm->commodity->name ?? '' !!}--}}
+{{--                    </td>--}}
+{{--                    <td>--}}
+{{--                        {!! $rm->start_date  !!}--}}
+{{--                    </td>--}}
+{{--                    <td>--}}
+{{--                        {!! $rm->latest_update->participants_involved ?? '' !!}--}}
+{{--                    </td>--}}
+{{--                    <td>--}}
+{{--                        {!! $rm->latest_update->activities_done ?? '' !!}--}}
+{{--                    </td>--}}
+{{--                    <td>--}}
+{{--                        {!! $rm->latest_update->activities_ongoing ?? '' !!}--}}
+{{--                    </td>--}}
+{{--                    <td>--}}
+{{--                        {!! $rm->latest_update->overall_status ?? '' !!}--}}
+{{--                    </td>--}}
+{{--                    <td>--}}
+{{--                        {!! $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : ''  !!}--}}
+{{--                    </td>--}}
+{{--                </tr>--}}
+{{--            @endforeach--}}
         @endforeach
         </tbody>
     </table>
