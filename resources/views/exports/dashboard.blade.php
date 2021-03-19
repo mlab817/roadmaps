@@ -36,16 +36,16 @@
                         {!! $rm->start_date  !!}
                     </td>
                     <td>
-                        {!! preg_replace("/[^A-Za-z0-9.():,\/ ]/", '', $rm->latest_update->participants_involved ?? '') !!}
+                        {!! preg_replace("/[^A-Za-z0-9.():,\/\n ]/", '', $rm->latest_update->participants_involved ?? '') !!}
                     </td>
                     <td>
-                        {!! preg_replace("/[^A-Za-z0-9.():,\/ ]/", '', $rm->latest_update->activities_done ?? '') !!}
+                        {!! preg_replace("/[^A-Za-z0-9.():,\/\n ]/", '', $rm->latest_update->activities_done ?? '') !!}
                     </td>
                     <td>
-                        {!! preg_replace("/[^A-Za-z0-9.():,\/ ]/", '', $rm->latest_update->activities_ongoing ?? '') !!}
+                        {!! preg_replace("/[^A-Za-z0-9.():,\/\n ]/", '', $rm->latest_update->activities_ongoing ?? '') !!}
                     </td>
                     <td>
-                        {!! preg_replace("/[^A-Za-z0-9.():,\/ ]/", '', $rm->latest_update->overall_status ?? '') !!}
+                        {!! preg_replace("/[^A-Za-z0-9.():,\/\n ]/", '', $rm->latest_update->overall_status ?? '') !!}
                     </td>
                     <td>
                         {!! $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : ''  !!}
