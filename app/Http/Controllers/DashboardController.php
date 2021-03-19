@@ -36,6 +36,7 @@ class DashboardController extends Controller
 
     public function export(): BinaryFileResponse
     {
-        return Excel::download(new DashboardExport, 'dashboard.xlsx', Excel::HTML);
+        return (new DashboardExport)->download('dashboard.xlsx', Excel::XLSX);
+//        return Excel::download(new DashboardExport, 'dashboard.xlsx', Excel::HTML);
     }
 }
