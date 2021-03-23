@@ -30,7 +30,7 @@ class CommodityController extends Controller
         $search = $request->query('search');
 
         $commodities = trim($search)
-            ? Commodity::search($search)->paginate(10)->get()
+            ? Commodity::search($search)->paginate(10)
             : Commodity::with('office')->paginate(10);
 
         return view('commodities.index', compact('commodities'))

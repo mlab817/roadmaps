@@ -63,12 +63,12 @@ class ProgressReport extends Model
             : '';
     }
 
-    public function toSearchableArray()
+    public function toSearchableArray(): array
     {
         return [
             'id'            => $this->id,
-            'report_period' => $this->report_period->name ?? '',
-            'office'        => $this->office->name ?? '',
+            'report_period' => $this->report_period['name'] ?? '',
+            'office'        => $this->office['name'] ?? '',
             'title'         => $this->title,
         ];
     }

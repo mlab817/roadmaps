@@ -15,8 +15,19 @@
             </div>
         @endif
 
-        <div class="my-3">
-            <a href="{{ route('commodities.create') }}" class="text-blue-500 hover:text-blue-900">Add New</a>
+        <div class="my-3 flex flex-nowrap flex-row items-center">
+            <div class="flex-1 items-center">
+                <a href="{{ route('commodities.create') }}" class="text-blue-500 hover:text-blue-900">Add New</a>
+            </div>
+            <div class="flex">
+                <form class="flex-nowrap" action="{{ route('commodities.index') }}" method="GET">
+                    <x-forms.input
+                        value="{{ old('search', request()->query('search')) }}"
+                        name="search"
+                        placeholder="Search...">
+                    </x-forms.input>
+                </form>
+            </div>
         </div>
 
         <table class="table-fixed min-w-full">
@@ -24,7 +35,8 @@
             <tr class="bg-gray-100">
                 <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-20">No.</th>
                 <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Office
+                <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Office</th>
+                <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Roadmaps</th>
                 <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
             </tr>
             </thead>
@@ -34,6 +46,11 @@
                         <td class="px-6 py-3 text-sm text-center">{{ $item->id }}</td>
                         <td class="px-6 py-3 text-sm text-center">{{ $item->name }}</td>
                         <td class="px-6 py-3 text-sm text-center">{{ $item->office ? $item->office->name : '' }}</td>
+                        <td class="px-6 py-3 text-sm text-center">
+                            @foreach($item->roadmaps as $roadmap)
+                                <a class="text-blue-500 hover:text-blue-900" href="{{ route('roadmaps.show', $roadmap->id) }}">{{ $roadmap->commodity->name ?? '' }}</a> <br/>
+                            @endforeach
+                        </td>
                         <td class="px-6 py-3 whitespace-nowrap text-sm text-center">
                             <a href="{{ route('commodities.edit', $item->id) }}" class="text-blue-500">Edit</a> |
                             <form class="inline" action="{{ route('commodities.destroy', $item->id) }}" method="POST">

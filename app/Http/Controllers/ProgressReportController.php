@@ -20,11 +20,18 @@ class ProgressReportController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $progress_reports = ProgressReport::with(['office','report_period'])->orderByDesc('id')->paginate(10);
+        $search = trim($request->query('search'));
+
+        if ($search) {
+            $progress_reports = ProgressReport::search($search)->paginate(10);
+        } else {
+            $progress_reports = ProgressReport::with(['office','report_period'])->orderByDesc('id')->paginate(10);
+        }
 
         return view('progress-reports.index', compact('progress_reports'));
     }

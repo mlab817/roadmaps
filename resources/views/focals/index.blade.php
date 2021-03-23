@@ -4,8 +4,19 @@
     </x-slot>
 
     <div>
-        <div class="my-3">
-            <a href="{{ route('focals.create') }}" class="text-blue-500 hover:text-blue-900">Add New</a>
+        <div class="my-3 flex flex-nowrap flex-row items-center">
+            <div class="flex-1 items-center">
+                <a href="{{ route('focals.create') }}" class="text-blue-500 hover:text-blue-900">Add New</a>
+            </div>
+            <div class="flex">
+                <form class="flex-nowrap" action="{{ route('focals.index') }}" method="GET">
+                    <x-forms.input
+                        value="{{ old('search', request()->query('search')) }}"
+                        name="search"
+                        placeholder="Search...">
+                    </x-forms.input>
+                </form>
+            </div>
         </div>
         <table class="table-fixed min-w-full divide-y">
             <thead>
@@ -29,7 +40,11 @@
                         <td class="px-6 py-3 text-sm text-center">{{ $item->office->name ?? '' }}</td>
                         <td class="px-6 py-3 text-sm text-center">{{ $item->email }}</td>
                         <td class="px-6 py-3 text-sm text-center">{{ $item->viber_number }}</td>
-                        <td class="px-6 py-3 text-sm text-center">{{ $item->roadmaps->pluck('commodity.name')->join(', ') }}</td>
+                        <td class="px-6 py-3 text-sm text-center">
+                            @foreach($item->roadmaps as $roadmap)
+                                <a class="text-blue-500 hover:text-blue-900" href="{{ route('roadmaps.show', $roadmap->id) }}">{{ $roadmap->commodity->name ?? '' }}</a> <br/>
+                            @endforeach
+                        </td>
                         <td class="px-6 py-3 text-sm text-center">
                             <a href="{{ route('focals.edit', $item->id) }}" class="text-blue-500">Edit</a> |
                             <form class="inline" action="{{ route('focals.destroy', $item->id) }}" method="POST">

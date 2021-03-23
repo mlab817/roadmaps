@@ -17,14 +17,23 @@ class OfficeController extends Controller
         $this->middleware('permission:edit offices')->only('create','edit','update','store');
         $this->middleware('permission:delete offices')->only('destroy');
     }
+
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return Application|Factory|View|Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $offices = Office::paginate(10);
+        $search = trim($request->query('search'));
+
+        if ($search) {
+            $offices = Office::search($search)->paginate(10);
+            $offices->load('roadmaps.commodity');
+        } else {
+            $offices = Office::with('roadmaps.commodity')->paginate(10);
+        }
 
         return view('offices.index', compact('offices'));
     }

@@ -9,10 +9,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Laravel\Scout\Searchable;
 
 class Roadmap extends Model
 {
     use HasFactory;
+
+    use Searchable;
 
     protected $fillable = [
         'office_id',
@@ -63,5 +66,23 @@ class Roadmap extends Model
     public function upload(): BelongsTo
     {
         return $this->belongsTo(Upload::class);
+    }
+
+    public function user(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    /**
+     * @return array
+     */
+    public function toSearchableArray(): array
+    {
+        return [
+            'id'            => $this->id,
+            'office'        => $this->office['name'] ?? '',
+            'commodity'     => $this->commodity['name'] ?? '',
+            'start_date'    => $this->start_date,
+        ];
     }
 }

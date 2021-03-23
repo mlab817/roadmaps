@@ -8,10 +8,11 @@ use App\Models\FocalType;
 use App\Models\Office;
 use App\Models\Roadmap;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class FocalController extends Controller
 {
-    public function __construct()
+    public function __construct(Request $request)
     {
         $this->middleware('permission:edit focals')->only('create','edit','update','store');
         $this->middleware('permission:delete focals')->only('destroy');
@@ -20,11 +21,18 @@ class FocalController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $focals = Focal::with('roadmaps.commodity')->paginate(10);
+        $search = trim($request->query('search'));
+
+        if ($search) {
+            $focals = Focal::search($search)->paginate(10);
+        } else {
+            $focals = Focal::with('roadmaps.commodity')->paginate(10);
+        }
 
         return view('focals.index', compact('focals'));
     }
@@ -33,7 +41,7 @@ class FocalController extends Controller
      * Show the form for creating a new resource.
      *
      * @param Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Response
      */
     public function create(Request $request)
     {
@@ -49,7 +57,7 @@ class FocalController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(FocalStoreRequest $request)
     {
@@ -76,7 +84,7 @@ class FocalController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Focal  $focal
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(Focal $focal)
     {
@@ -87,7 +95,7 @@ class FocalController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Focal  $focal
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(Focal $focal)
     {
@@ -103,7 +111,7 @@ class FocalController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Focal  $focal
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, Focal $focal)
     {
@@ -114,7 +122,7 @@ class FocalController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Focal  $focal
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(Focal $focal)
     {

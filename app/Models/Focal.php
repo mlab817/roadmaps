@@ -42,20 +42,28 @@ class Focal extends Model
         return $this->belongsToMany(Roadmap::class);
     }
 
+    protected function makeAllSearchableUsing($query)
+    {
+        return $query->with('focal_type','office','roadmaps');
+    }
+
     public function toSearchableArray(): array
     {
+        $roadmaps = $this->roadmaps()->get()->map(function ($roadmap) {
+            return $roadmap['commodity']['name'];
+        });
         return [
             'id'                => $this->id,
-            'status'            => $this->status,
-            'commodity'         => $this->commodity->name ?? '',
+            'focal_type'        => $this->focal_type['name'],
             'name'              => $this->name,
             'designation'       => $this->designation,
             'email'             => $this->email,
-            'office_id'         => $this->office->name ?? '',
+            'office_id'         => $this->office['name'],
             'telephone_number'  => $this->telephone_number,
             'fax_number'        => $this->fax_number,
             'mobile_number'     => $this->mobile_number,
             'viber_number'      => $this->viber_number,
+            'roadmaps'          => implode(' ', $roadmaps->toArray()),
         ];
     }
 }

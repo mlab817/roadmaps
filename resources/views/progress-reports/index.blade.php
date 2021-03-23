@@ -4,8 +4,19 @@
     </x-slot>
 
     <div>
-        <div class="my-3">
-            <a href="{{ route('progress-reports.create') }}" class="text-blue-500 hover:text-blue-900">Add New</a>
+        <div class="my-3 flex flex-nowrap flex-row items-center">
+            <div class="flex-1 items-center">
+                <a href="{{ route('progress-reports.create') }}" class="text-blue-500 hover:text-blue-900">Add New</a>
+            </div>
+            <div class="flex">
+                <form class="flex-nowrap" action="{{ route('progress-reports.index') }}" method="GET">
+                    <x-forms.input
+                        value="{{ old('search', request()->query('search')) }}"
+                        name="search"
+                        placeholder="Search...">
+                    </x-forms.input>
+                </form>
+            </div>
         </div>
         <table class="table-fixed min-w-full">
             <thead>
