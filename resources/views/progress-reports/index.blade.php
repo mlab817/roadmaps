@@ -25,6 +25,7 @@
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider ">Office</th>
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider ">Report Period (ending)</th>
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider ">Attachment</th>
+                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider ">Roadmaps Covered</th>
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider ">Remarks</th>
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider ">Actions</th>
                 </tr>
@@ -37,6 +38,11 @@
                         <td class="px-6 py-3 text-xs text-center">{{ $item->report_period->name ?? '' }}</td>
                         <td class="px-6 py-3 text-xs text-center">
                             <a class="text-blue-500 hover:text-blue-900" href="{{ $item->attachment_url }}" target="_blank">View</a>
+                        </td>
+                        <td class="px-6 py-3 text-xs text-center">
+                            @foreach($item->roadmaps as $roadmap)
+                                <a class="text-blue-500 hover:text-blue-900" href="{{ route('roadmaps.show', $roadmap->id) }}">{{ $roadmap->commodity->name ?? '' }}</a> <br/>
+                            @endforeach
                         </td>
                         <td class="px-6 py-3 text-xs text-center">{{ $item->remarks }}</td>
                         <td class="px-6 py-3 text-xs text-center">

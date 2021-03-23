@@ -39,6 +39,29 @@
                         @error('attachment') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
                     <div class="mb-4">
+                        <x-forms.label for="exampleFormControlInput2" label="Roadmaps Covered *"></x-forms.label>
+                        @foreach($roadmaps as $item)
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input
+                                        class="focus:ring-indigo-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                                        id="roadmaps{{ $item->id }}"
+                                        type="checkbox"
+                                        name="roadmaps[]"
+                                        value="{{ $item->id }}"
+                                        @if(in_array($item->id, old('roadmaps', $progress_report->roadmaps->pluck('id')->toArray() ))) {{ 'checked' }} @endif>
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="{{ $item->commodity->name ?? '' }}" class="font-medium text-gray-700">{{ $item->commodity->name ?? '' }}</label>
+                                </div>
+                            </div>
+                        @endforeach
+                        <div>
+
+                        </div>
+                        @error('roadmaps') <span class="text-red-500">{{ $message }}</span>@enderror
+                    </div>
+                    <div class="mb-4">
                         <x-forms.label for="exampleFormControlInput2" label="Remarks (optional)"></x-forms.label>
                         <x-forms.textarea
                             id="exampleFormControlInput1"

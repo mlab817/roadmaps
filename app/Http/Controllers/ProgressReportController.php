@@ -6,6 +6,7 @@ use App\Http\Requests\ProgressReportStoreRequest;
 use App\Models\Office;
 use App\Models\ProgressReport;
 use App\Models\ReportPeriod;
+use App\Models\Roadmap;
 use App\Services\UploadService;
 use Illuminate\Http\Request;
 
@@ -49,6 +50,7 @@ class ProgressReportController extends Controller
             ->with([
                 'offices'           => Office::select('id AS value','name AS label')->get(),
                 'report_periods'    => ReportPeriod::select('id AS value','name AS label')->get(),
+                'roadmaps'          => Roadmap::all(),
             ]);
     }
 
@@ -73,6 +75,10 @@ class ProgressReportController extends Controller
             'remarks'           => $request->remarks,
             'user_id'           => auth()->user()->id,
         ]);
+
+        if (!is_null($request->roadmaps)) {
+            $progressReport->roadmaps()->sync($request->roadmaps);
+        }
 
         return redirect()->route('progress-reports.index');
     }
@@ -101,6 +107,7 @@ class ProgressReportController extends Controller
                 'progress_report'   => $progressReport,
                 'offices'           => Office::select('id AS value','name AS label')->get(),
                 'report_periods'    => ReportPeriod::select('id AS value','name AS label')->get(),
+                'roadmaps'          => Roadmap::all(),
             ]);
     }
 

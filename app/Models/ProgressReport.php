@@ -41,6 +41,11 @@ class ProgressReport extends Model
         return $this->belongsTo(Office::class);
     }
 
+    public function roadmaps(): BelongsToMany
+    {
+        return $this->belongsToMany(Roadmap::class);
+    }
+
     public function report_period(): BelongsTo
     {
         return $this->belongsTo(ReportPeriod::class);

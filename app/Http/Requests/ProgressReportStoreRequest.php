@@ -27,6 +27,7 @@ class ProgressReportStoreRequest extends FormRequest
             'office_id'         => 'required|exists:offices,id',
             'report_period_id'  => 'required|exists:report_periods,id',
             'attachment'        => 'required|file|mimetypes:application/pdf|mimes:pdf',
+            'roadmaps'          => 'required|array',
         ];
     }
 }
