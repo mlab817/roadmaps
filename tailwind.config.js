@@ -15,12 +15,12 @@ module.exports = {
         },
     },
 
-    variants: {
-        extend: {
-            opacity: ['disabled'],
-            ringWidth: ['hover', 'active'],
-        },
-    },
+    // variants: {
+    //     extend: {
+    //         opacity: ['disabled'],
+    //         ringWidth: ['hover', 'active'],
+    //     },
+    // },
 
     plugins: [
         require('@tailwindcss/forms'),

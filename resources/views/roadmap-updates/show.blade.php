@@ -51,7 +51,7 @@
                         <dt class="text-sm font-medium text-gray-500">
                             Participants Involved
                         </dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 whitespace-pre-wrap">
                             {{ $roadmap_update->participants_involved }}
                         </dd>
                     </div>
@@ -59,7 +59,7 @@
                         <dt class="text-sm font-medium text-gray-500">
                             Activities Done
                         </dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 whitespace-pre-wrap">
                             {{ $roadmap_update->activities_done }}
                         </dd>
                     </div>
@@ -67,7 +67,7 @@
                         <dt class="text-sm font-medium text-gray-500">
                             Ongoing Activities
                         </dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 whitespace-pre-wrap">
                             {{ $roadmap_update->activities_ongoing }}
                         </dd>
                     </div>
@@ -75,7 +75,7 @@
                         <dt class="text-sm font-medium text-gray-500">
                             Overall Status
                         </dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 whitespace-pre-wrap">
                             {{ $roadmap_update->overall_status }}
                         </dd>
                     </div>
@@ -83,7 +83,7 @@
                         <dt class="text-sm font-medium text-gray-500">
                             Remarks
                         </dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 whitespace-pre-wrap">
                             {{ $roadmap_update->remarks }}
                         </dd>
                     </div>
