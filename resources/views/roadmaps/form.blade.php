@@ -42,6 +42,15 @@
                             name="start_date"></x-forms.input>
                         @error('start_date') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
+                    <div class="mb-4">
+                        <label for="exampleFormControlInput2" class="block text-gray-700 text-sm font-bold mb-2">PCAF Consultation Date:</label>
+                        <x-forms.input
+                            id="exampleFormControlInput1"
+                            type="text"
+                            value="{{ old('start_date', $roadmap->pcaf_consultation_date) }}"
+                            name="pcaf_consultation_date"></x-forms.input>
+                        @error('pcaf_consultation_date') <span class="text-red-500">{{ $message }}</span>@enderror
+                    </div>
                 </div>
             </div>
             <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">

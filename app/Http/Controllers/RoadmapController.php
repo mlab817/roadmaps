@@ -7,6 +7,7 @@ use App\Models\Commodity;
 use App\Models\Office;
 use App\Models\Roadmap;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class RoadmapController extends Controller
 {
@@ -20,7 +21,7 @@ class RoadmapController extends Controller
      * Display a listing of the resource.
      *
      * @param Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Response
      */
     public function index(Request $request)
     {
@@ -36,7 +37,7 @@ class RoadmapController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -53,17 +54,18 @@ class RoadmapController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(RoadmapStoreRequest $request)
     {
         $roadmap = Roadmap::updateOrCreate([
-            'id'            => $request->id,
+            'id'                        => $request->id,
         ],[
-            'office_id'     => $request->office_id,
-            'commodity_id'  => $request->commodity_id,
-            'start_date'    => $request->start_date,
-            'user_id'       => $request->user()->id,
+            'office_id'                 => $request->office_id,
+            'commodity_id'              => $request->commodity_id,
+            'start_date'                => $request->start_date,
+            'pcaf_consultation_date'    => $request->pcaf_consultation_date,
+            'user_id'                   => $request->user()->id,
         ]);
 
         return redirect()->route('roadmaps.index');
@@ -73,7 +75,7 @@ class RoadmapController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Roadmap  $roadmap
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(Roadmap $roadmap)
     {
@@ -86,7 +88,7 @@ class RoadmapController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Roadmap  $roadmap
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(Roadmap $roadmap)
     {
@@ -98,22 +100,10 @@ class RoadmapController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Roadmap  $roadmap
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Roadmap $roadmap)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Roadmap  $roadmap
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(Roadmap $roadmap)
     {

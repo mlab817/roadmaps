@@ -21,6 +21,7 @@ class Roadmap extends Model
         'office_id',
         'commodity_id',
         'start_date',
+        'pcaf_consultation_date',
     ];
 
     public function commodity(): BelongsTo

@@ -21,12 +21,13 @@ class RoadmapStoreRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'office_id'     => 'required|exists:offices,id',
-            'commodity_id'  => 'required|exists:commodities,id',
-            'start_date'    => 'required|max:50',
+            'office_id'                 => 'required|exists:offices,id',
+            'commodity_id'              => 'required|exists:commodities,id',
+            'start_date'                => 'required|max:50',
+            'pcaf_consultation_date'    =>  'sometimes'
         ];
     }
 }

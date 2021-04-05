@@ -39,6 +39,13 @@
                             </label>
                             <p>{{ $roadmap->start_date }}</p>
                         </div>
+
+                        <div class="col-span-6 sm:col-span-4">
+                            <label class="block font-medium text-sm text-gray-700" for="email">
+                                Date Formulation/Updating Started
+                            </label>
+                            <p>{{ $roadmap->pcaf_consultation_date }}</p>
+                        </div>
                     </div>
                 </div>
                 <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md">
