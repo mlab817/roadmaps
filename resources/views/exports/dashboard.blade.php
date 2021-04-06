@@ -52,7 +52,7 @@
                     <td>
                         {!! $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : ''  !!}
                     </td>
-                    <td>{!! $rm->latest_update ? nl2br($rm->latest_update->remarks) : '' !!}</td>
+                    <td>{!! $rm->latest_update ? nl2br(preg_replace("/[^A-Za-z0-9.():\-,\/\n ]/", '', $rm->latest_update->remarks)) : '' !!}</td>
                 </tr>
             @endforeach
         @endforeach
