@@ -31,7 +31,7 @@ class RoadmapUpdateStoreRequest extends FormRequest
             'activities_ongoing'    => 'required',
             'overall_status'        => 'required',
             'report_date'           => 'required|date|before_or_equal:now',
-            'remarks'               => 'required',
+            'remarks'               => 'sometimes',
             'attachment'            => 'sometimes|file|mimetypes:application/pdf|mimes:pdf',
         ];
     }

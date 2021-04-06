@@ -52,7 +52,7 @@
                 @error('report_date') <p class="text-sm text-red-500">{{ $message }}</p> @enderror
             </div>
             <div class="mb-4">
-                <x-forms.label label="Remarks"></x-forms.label>
+                <x-forms.label label="Remarks (optional)"></x-forms.label>
                 <x-forms.textarea name="remarks">{{ old('remarks', $roadmap_update->remarks) }}</x-forms.textarea>
                 @error('remarks') <p class="text-sm text-red-500">{{ $message }}</p> @enderror
             </div>
