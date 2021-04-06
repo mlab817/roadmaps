@@ -14,6 +14,7 @@
                 <th>Ongoing Activities</th>
                 <th>Overall Status</th>
                 <th>As of</th>
+                <th>Remarks</th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +26,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>{{ $office->latest_report->report_period->name ?? '' }}</td>
+                <td></td>
+                <td></td>
             </tr>
             @foreach($office->roadmaps as $rm)
                 <tr>
@@ -50,6 +52,7 @@
                     <td>
                         {!! $rm->latest_update && $rm->latest_update->report_date ? \Carbon\Carbon::make($rm->latest_update->report_date)->format('M d, Y') : ''  !!}
                     </td>
+                    <td>{!! $rm->latest_update->remarks !!}</td>
                 </tr>
             @endforeach
         @endforeach
