@@ -110,6 +110,9 @@
                 <x-tables.th>
                     Last Updated
                 </x-tables.th>
+                <x-tables.th>
+                    Remarks
+                </x-tables.th>
             </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
@@ -169,15 +172,18 @@
                         <td class="items-start py-3 text-xs text-center align-top @if($rm->latest_update ? ($rm->latest_update->updated_at->diffInDays() > 15) : null) text-red-500 bg-red-100 @endif">
                             {!! $rm->latest_update ? $rm->latest_update->updated_at->diffForHumans(null, null, true) : '' !!}
                         </td>
+                        <td class="items-start py-3 text-xs text-center align-top @if($rm->latest_update ? ($rm->latest_update->updated_at->diffInDays() > 15) : null) text-red-500 bg-red-100 @endif">
+                            {!! $rm->latest_update ? $rm->latest_update->remarks ? '' !!}
+                        </td>
                     </tr>
                 @empty
                     <tr>
-                        <td class="px-6 py-3 text-xs text-center text-red-500" colspan="8">No roadmaps found</td>
+                        <td class="px-6 py-3 text-xs text-center text-red-500" colspan="9">No roadmaps found</td>
                     </tr>
                 @endforelse
             @empty
                 <tr>
-                    <td class="px-6 py-3 text-xs text-center text-red-500" colspan="8">No offices found</td>
+                    <td class="px-6 py-3 text-xs text-center text-red-500" colspan="9">No offices found</td>
                 </tr>
             @endforelse
             </tbody>
