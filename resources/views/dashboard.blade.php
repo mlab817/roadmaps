@@ -173,7 +173,7 @@
                             {!! $rm->latest_update ? $rm->latest_update->updated_at->diffForHumans(null, null, true) : '' !!}
                         </td>
                         <td class="items-start py-3 text-xs text-center align-top @if($rm->latest_update ? ($rm->latest_update->updated_at->diffInDays() > 15) : null) text-red-500 bg-red-100 @endif">
-                            {!! $rm->latest_update ? $rm->latest_update->remarks ? '' !!}
+                            {!! $rm->latest_update ? $rm->latest_update->remarks : '' !!}
                         </td>
                     </tr>
                 @empty
