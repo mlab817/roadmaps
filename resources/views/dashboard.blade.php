@@ -120,7 +120,6 @@
                 <tr class="bg-gray-50">
                     <td class="items-start px-3 py-3 text-xs" colspan="6">{{ $loop->index + 1 . '. ' . $office->name }}</td>
                     <td class="items-start px-3 py-3 text-xs text-center">{{ $office->latest_report->report_period->name ?? '' }}</td>
-                    <td></td>
                     <td class="items-start px-3 py-3 text-xs text-center">
                         @if($office->latest_report && $office->latest_report->attachment_url)
                             <a href="{{ $office->latest_report->attachment_url ?? '#' }}" target="_blank">
@@ -130,6 +129,7 @@
                             </a>
                         @endif
                     </td>
+                    <td></td>
                     <td class="items-start px-3 py-3 text-xs text-center @if($office->latest_report ? ($office->latest_report->updated_at->diffInDays() > 15) : null) text-red-500 bg-red-100 @endif">
                         {!! $office->latest_report ? $office->latest_report->updated_at->diffForHumans(null, null, true) : '' !!}
                     </td>
