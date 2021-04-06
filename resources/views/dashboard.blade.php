@@ -108,10 +108,10 @@
                 <x-tables.th>As of</x-tables.th>
                 <x-tables.th>Attachment</x-tables.th>
                 <x-tables.th>
-                    Last Updated
+                    Remarks
                 </x-tables.th>
                 <x-tables.th>
-                    Remarks
+                    Last Updated
                 </x-tables.th>
             </tr>
             </thead>
@@ -120,6 +120,7 @@
                 <tr class="bg-gray-50">
                     <td class="items-start px-3 py-3 text-xs" colspan="6">{{ $loop->index + 1 . '. ' . $office->name }}</td>
                     <td class="items-start px-3 py-3 text-xs text-center">{{ $office->latest_report->report_period->name ?? '' }}</td>
+                    <td></td>
                     <td class="items-start px-3 py-3 text-xs text-center">
                         @if($office->latest_report && $office->latest_report->attachment_url)
                             <a href="{{ $office->latest_report->attachment_url ?? '#' }}" target="_blank">
@@ -170,10 +171,10 @@
                             </span>
                         </td>
                         <td class="items-start py-3 text-xs text-center align-top @if($rm->latest_update ? ($rm->latest_update->updated_at->diffInDays() > 15) : null) text-red-500 bg-red-100 @endif">
-                            {!! $rm->latest_update ? $rm->latest_update->updated_at->diffForHumans(null, null, true) : '' !!}
+                            {!! $rm->latest_update ? $rm->latest_update->remarks : '' !!}
                         </td>
                         <td class="items-start py-3 text-xs text-center align-top @if($rm->latest_update ? ($rm->latest_update->updated_at->diffInDays() > 15) : null) text-red-500 bg-red-100 @endif">
-                            {!! $rm->latest_update ? $rm->latest_update->remarks : '' !!}
+                            {!! $rm->latest_update ? $rm->latest_update->updated_at->diffForHumans(null, null, true) : '' !!}
                         </td>
                     </tr>
                 @empty
